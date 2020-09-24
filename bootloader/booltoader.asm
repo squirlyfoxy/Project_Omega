@@ -7,14 +7,17 @@ jmp main
 PR: db ".PrOFS.", 0
 
 main:
-    mov [BOOT_DISK], dl
+  mov [BOOT_DISK], dl
 
     mov si, welcome
     call printf
 
+    ;mov cl, 0x02
+    ;mov al, KTP_ENTRY
+    ;mov bx, KERNEL_SPACE
     call readDisk
 
-    jmp PROGRAM_SPACE
+    jmp KERNEL_SPACE
 
 %include "print.asm"        ; Print Function
 %include "disk.asm"         ; Read Disk Function

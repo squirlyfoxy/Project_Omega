@@ -37,19 +37,11 @@ if isinstance(nBitForHDD / 8, float):
 
 print("The kernel will be indexed with: ", (int(nBitForHDD / 8)), " bytes")
 
-# I primi 2 bytes verranno usati per indicare quanti bytes devo leggere dal terzo in poi
-nBlockHex = "0x{:02x}".format(nBlock)
-nLblockHex = "0x{:02x}".format(len((str)(nBlockHex[2:])))
-
-print(nBlockHex, " will be stored from the 3rd byte for a lenght of ", nLblockHex, " bytes, generating table:")
-
-f = open("./bootloader/kpt.asm", "w+") # Crea il file tabella dentro bootloader
-toWrite = "dw 0x" + nBlockHex[2:] + nLblockHex[2:] + "\r\n"
+f = open("./bootloader/include/kpt.asm", "w+") # Crea il file tabella dentro bootloader
+toWrite = "KTP_ENTRY: equ " + (str)(nBlock) + "\r\n"
 
 f.write(toWrite)
 
-f.write('a: db "PrOFS KPT table", 0 \r\n')
-f.write("times 512 - ($ - $$) db 0 \r\n")
 f.close()
 
 print("OK")
