@@ -20,7 +20,7 @@ py kpt.py
 echo Building bootloader:
 :: Build bootloader
 echo - Building Stage 1
-nasm -i ./bootloader/include bootloader/booltoader.asm -f bin -o ./out/bootloader.bin
+nasm -i ./bootloader/include bootloader/bootloader.asm -f bin -o ./out/bootloader.bin
 
 :: Create system image
 echo Creating system image:
