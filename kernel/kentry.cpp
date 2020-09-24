@@ -22,6 +22,7 @@
 extern "C" void _start()
 {   
     //SetCursorPosition(PositionFromCords(12, 18));
+    ClearScreen();
     printf("Hello Word\n\rNu\n\r");
     printf(HexToString(0x17A));
 
