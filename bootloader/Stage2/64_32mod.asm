@@ -3,7 +3,7 @@
 jmp _main
 
 ; Presentation string (Kernel first stage)
-PR2: db "K_FRStage", 0
+PR2: db "K_Entry", 0
 
 ; Assembly Files for Protected Mode
 %include "Scnd/gdt.asm"
@@ -83,10 +83,6 @@ LongMode:
 	mov dr0, rax	; Set CPU0
 
     ; Now we are in Long Mode!!!
-    mov edi, 0xB8000              ; Set the destination index to 0xB8000.
-    mov rax, 0x1F201F201F201F20   ; Set the A-register to 0x1F201F201F201F20.
-    mov ecx, 500                  ; Set the C-register to 500.
-    rep stosq                     ; Clear the screen.
 
     call _start
 
