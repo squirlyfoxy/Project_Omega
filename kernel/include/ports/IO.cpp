@@ -1,6 +1,6 @@
 #pragma once
 
-#include "./8256.h"
+#include "./8259.h"
 #include "../typedef.h"
 
 void outb(unsigned short port, unsigned char val)
