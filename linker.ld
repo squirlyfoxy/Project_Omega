@@ -17,7 +17,7 @@ SECTIONS
 {
     . = 0x8000;
 
-    .text : ALIGN(0x1000)
+    .text BLOCK(4K) : ALIGN(4K)
     {
         *(.text)
     }
@@ -28,17 +28,17 @@ SECTIONS
         . = . + 0x1000;
     }
 
-    .data : ALIGN(0x1000)
+    .data BLOCK(4K) : ALIGN(4K)
     {
         *(.data)
     }
 
-    .rodata : ALIGN(0x1000)
+    .rodata BLOCK(4K) : ALIGN(4K)
     {
         *(.rodata)
     }
 
-    .bss : ALIGN(0x1000)
+    .bss BLOCK(4K) : ALIGN(4K)
     {
        *(COMMON)
         *(.bss)
