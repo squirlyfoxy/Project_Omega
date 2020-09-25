@@ -3,7 +3,6 @@
 #include "../include/typedef.h"
 #include "../include/ports/IO.cpp"
 #include "./Keyboard/KBScanCode.cpp"
-#include "../kprint.cpp"
 
 //Interrupt Descriptor Table
 struct IDT64
