@@ -30,9 +30,9 @@ void ClearScreen(uint_64 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
     val += color << 56;
 
     for(uint_64* i = (uint_64*)VGA_MEMORY; i < (uint_64*)(VGA_MEMORY + 4000); i++)
-    {
         *i = val;
-    }
+
+    SetCursorPosition(0);
 }
 
 void printf(const char* str, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
@@ -64,6 +64,14 @@ void printf(const char* str, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
     }
 
     SetCursorPosition(index);
+}
+
+void PrintChar(char ch, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
+{
+    *(VGA_MEMORY + CurrentCursorPosition * 2) = ch;
+    *(VGA_MEMORY + CurrentCursorPosition * 2 + 1) = color;
+
+    SetCursorPosition(CurrentCursorPosition + 1);
 }
 
 char hexToStringOutput[128];

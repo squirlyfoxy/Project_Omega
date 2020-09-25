@@ -70,6 +70,8 @@ StartProtectedMode:
 [bits 64]
 [extern _start]
 
+%include "Scnd/idt.asm"
+
 LongMode:
     cli                           ; Clear the interrupt flag.
     mov ax, GDT64.Data            ; Set the A-register to the data descriptor.
