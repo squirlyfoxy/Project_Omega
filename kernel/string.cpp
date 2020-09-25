@@ -1,4 +1,5 @@
 #pragma one
+#include "./include/typedef.h"
 
 //Convert Hex to String
 char hexToStringOutput[128];
@@ -20,4 +21,46 @@ const char* HexToString(T value)
     hexToStringOutput[size + 1] = 0;
 
     return hexToStringOutput;
+}
+
+//Convert Int to String
+char integerToStringOutput[128];
+template <typename T>
+const char* itoa(T value)
+{
+    uint_8 isNegative = 0;
+    if(value < 0)
+    {
+        isNegative = 1;
+        value *= -1;
+        integerToStringOutput[0] = '-';
+    }
+
+    uint_8 size = 0;
+    uint_64 sizeTester = (uint_64)(value);
+
+    while (sizeTester / 10 > 0)
+    {
+        sizeTester /= 10;
+        size++;
+    }
+
+    uint_8 index = 0;
+    uint_64 newValue = (uint_64)(value);
+
+    while(newValue / 10 > 0)
+    {
+        uint_8 remainder = newValue % 10;
+        newValue /= 10;
+
+        integerToStringOutput[isNegative + size - index] = remainder + 48;
+
+        index++;
+    }
+
+    uint_8 nRemainder = newValue % 10;
+    integerToStringOutput[isNegative + size - index] = nRemainder + 48;
+    integerToStringOutput[isNegative + size + 1] = 0;
+
+    return integerToStringOutput;
 }
