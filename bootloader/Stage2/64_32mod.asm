@@ -85,9 +85,20 @@ LongMode:
 	mov dr0, rax	; Set CPU0
 
     ; Now we are in Long Mode!!!
-
+    call ActivateSSE
     call _start
 
-    hlt                           ; Halt the processor.
+    jmp $                           ; Halt the processor.
+
+ActivateSSE:
+    mov rax, cr0
+    and ax, 0b11111101
+    or ax, 0b00000001
+    mov cr0, rax
+
+    mov rax, cr4
+    or ax, 0b1100000000
+    mov cr4, rax
+    ret
 
 times 2048 - ($ - $$) db 0   ; Fill 4 sectors
