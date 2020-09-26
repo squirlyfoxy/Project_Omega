@@ -7,8 +7,11 @@ PR2: db "K_Entry", 0
 
 ; Assembly Files for Protected Mode
 %include "Scnd/gdt.asm"
+%include "Scnd/Memory.asm"
 
 _main:
+    call DetectMemory
+
     EnterProtectedMode:
         call EnableA20
         cli

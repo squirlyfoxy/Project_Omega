@@ -10,7 +10,7 @@
     TODO:
     Cosa deve fare questa parte di kernel?
     - Inizializza IDT (Done)
-    - Memory management di base
+    - Memory management di base (In Development)
     - Inizializza File System
         - Capire dove inizia la root, salvare questo dato in un gruppo di celle in memoria che saranno in sola lettura
         - Scansione della root e trovare il programma di init che procederà all'inizializzazzione di tutte le altre cose
@@ -21,6 +21,7 @@
 #include "string.cpp"
 #include "IDT/IDT.cpp"
 #include "IDT/Keyboard/Keyboard.cpp"
+#include "MEM/MemoryMap.cpp"
 
 extern "C" void _start()
 {   
@@ -33,6 +34,9 @@ extern "C" void _start()
     float testFloat = 3.5f;
 
     printf(FloatToString(testFloat));
+
+    SetCursorPosition(PositionFromCords(0, 3));
+    printf(itoa(MemoryRegionCount));
 
     return;
 }
