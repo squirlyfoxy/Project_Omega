@@ -30,13 +30,9 @@ extern "C" void _start()
 
     MainKeyboardHandler = KeyboardHandler;
 
-    printf(itoa(100));
+    float testFloat = 3.5f;
 
-    //HlT System (for now, it's just a test)
-    for(;;)
-    {
-        asm("hlt");
-    }
+    printf(FloatToString(testFloat));
 
     return;
 }
