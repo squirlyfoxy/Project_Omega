@@ -1,3 +1,5 @@
+;%include "print.asm"
+
 MemoryRegionCount:
     db 0
     GLOBAL MemoryRegionCount
@@ -13,6 +15,7 @@ DetectMemory:
         mov eax, 0xE820
         mov ecx, 24 ; 24 bytes
         int 0x15
+        jc short .failed
         cmp ebx, 0
         je .finished
 
@@ -22,4 +25,12 @@ DetectMemory:
     
     .finished:
 
+    .failed:
+        mov ebx, DETECT_MEMORY_FAILED
+        call printf
+        stc
+        ret
+
     ret
+
+DETECT_MEMORY_FAILED: db "ERRNO 0x03: 0x15 non supported", 0

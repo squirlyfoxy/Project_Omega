@@ -22,6 +22,7 @@
 #include "IDT/IDT.cpp"
 #include "IDT/Keyboard/Keyboard.cpp"
 #include "MEM/MemoryMap.cpp"
+#include "MEM/Heap.cpp"
 
 extern "C" void _start()
 {   
@@ -29,14 +30,13 @@ extern "C" void _start()
 
     IDTinit(); //Initialize Interrupts Descriptor Table
 
-    MainKeyboardHandler = KeyboardHandler;
+    //MainKeyboardHandler = KeyboardHandler;
+    MemoryMapEntry** usableMemoryMaps = GetUsableMemoryRegions();
 
-    float testFloat = 3.5f;
+    InitHeap(0x100000, 0x100000);
+    void* TestMemoryAddress = malloc(60);
 
-    printf(FloatToString(testFloat));
-
-    SetCursorPosition(PositionFromCords(0, 3));
-    printf(itoa(MemoryRegionCount));
+    printf(HexToString((uint_64)TestMemoryAddress));
 
     return;
 }
