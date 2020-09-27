@@ -23,12 +23,21 @@
 #include "IDT/Keyboard/Keyboard.cpp"
 #include "MEM/MemoryMap.cpp"
 #include "MEM/Heap.cpp"
+#include "./drivers/serial.cpp"
 
 extern "C" void _start()
 {   
     ClearScreen();
 
+    printf("Initializing IDT: ");
     IDTinit(); //Initialize Interrupts Descriptor Table
+    printf("(OK) \n\r");
+    
+    printf("Initializing Serial Ports (COM1): ");
+    InitSerial(COM1);
+    printf("(OK) \n\r");
+
+    WriteStringSerial("Project Omega Initializated!");
 
     //MainKeyboardHandler = KeyboardHandler;
     MemoryMapEntry** usableMemoryMaps = GetUsableMemoryRegions();

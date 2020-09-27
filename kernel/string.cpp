@@ -98,3 +98,17 @@ const char* FloatToString(float val, uint_8 decimalPlaces = 2)
 
     return floatToStringOutput;
 }
+
+uint_32 strlen(char* str)
+{
+    uint_32 c = 0;
+
+    while (*str != '\0')
+    {
+        c++;
+        str++;
+    }
+    
+
+    return c;
+}
