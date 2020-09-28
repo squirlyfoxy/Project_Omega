@@ -6,7 +6,7 @@
 import os, math
 
 # Prendi la dimensione in kBytes del file "./out/kernel.bin"
-kernelPath = "./out/kernel.bin"
+kernelPath = "../out/kernel.bin"
 
 def GetKernelKB(path):
     return os.path.getsize(path)
@@ -37,11 +37,11 @@ if isinstance(nBitForHDD / 8, float):
 
 print("The kernel will be indexed with: ", (int(nBitForHDD / 8)), " bytes")
 
-f = open("./bootloader/include/kpt.asm", "w+") # Crea il file tabella dentro bootloader
+f = open("../bootloader/include/kpt.asm", "w+") # Crea il file tabella dentro bootloader
 toWrite = "KPT_ENTRY: equ " + (str)(nBlock) + "\r\n"
 
 f.write(toWrite)
 
 f.close()
 
-print("OK")
+print("- OK")

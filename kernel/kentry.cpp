@@ -32,6 +32,10 @@ extern "C" void _start()
     printf("Initializing IDT: ");
     IDTinit(); //Initialize Interrupts Descriptor Table
     printf("(OK) \n\r");
+
+    printf("Initializing Heap: ");
+    InitHeap(0x100000, 0x100000);
+    printf("(OK) \n\r");
     
     printf("Initializing Serial Ports (COM1): ");
     InitSerial(COM1);
@@ -41,11 +45,6 @@ extern "C" void _start()
 
     //MainKeyboardHandler = KeyboardHandler;
     MemoryMapEntry** usableMemoryMaps = GetUsableMemoryRegions();
-
-    InitHeap(0x100000, 0x100000);
-    void* TestMemoryAddress = malloc(60);
-
-    printf(HexToString((uint_64)TestMemoryAddress));
 
     return;
 }
