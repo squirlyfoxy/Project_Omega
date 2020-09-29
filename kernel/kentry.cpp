@@ -24,6 +24,7 @@
 #include "MEM/MemoryMap.cpp"
 #include "MEM/Heap.cpp"
 #include "./drivers/serial.cpp"
+#include "./cpu/cpuid.cpp"
 
 extern "C" void _start()
 {   
@@ -41,10 +42,20 @@ extern "C" void _start()
     InitSerial(COM1);
     printf("(OK) \n\r");
 
+    DetectCPU();
+
     WriteStringSerial("Project Omega Initializated!");
 
     //MainKeyboardHandler = KeyboardHandler;
     MemoryMapEntry** usableMemoryMaps = GetUsableMemoryRegions();
+
+    void* TestMemoryAddress = malloc(0x10);
+    void* TestMemoryAddress2 = malloc(0x10);
+    void* TestMemoryAddress3 = malloc(0x10);
+
+    printf(HexToString((uint_64)TestMemoryAddress)); printf("\n\r");
+    printf(HexToString((uint_64)TestMemoryAddress2)); printf("\n\r");
+    printf(HexToString((uint_64)TestMemoryAddress3)); printf("\n\r");
 
     return;
 }
