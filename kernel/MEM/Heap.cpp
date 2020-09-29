@@ -69,3 +69,63 @@ void* malloc(uint_64 size)
 
     return 0; //We should never get here
 }
+
+void CombineFreeSegments(MemorySegmentHeader* a, MemorySegmentHeader* b)
+{
+    if(a == 0 || b == 0) return;
+    if(a < b)
+    {
+        a->MemoryLenght += b->MemoryLenght + sizeof(MemorySegmentHeader);
+        a->NextSegment = b->NextSegment;
+        a->NextFreeSegment = b->NextFreeSegment;
+        b->NextSegment->PreviusSegment = a;
+        b->NextSegment->PreviusFreeSegment = a;
+        b->NextFreeSegment->PreviusFreeSegment = a;
+    } else
+    {
+        b->MemoryLenght += a->MemoryLenght + sizeof(MemorySegmentHeader);
+        a->NextSegment = a->NextSegment;
+        b->NextFreeSegment = a->NextFreeSegment;
+        a->NextSegment->PreviusSegment = b;
+        a->NextSegment->PreviusFreeSegment = b;
+        a->NextFreeSegment->PreviusFreeSegment = b;
+    }
+    
+}
+
+void free(void* address)
+{
+    MemorySegmentHeader* currentMemorySegment = ((MemorySegmentHeader*)address) - 1;
+    currentMemorySegment->Free = true;
+
+    if(currentMemorySegment < FirstFreeMemorySegment)
+        FirstFreeMemorySegment = currentMemorySegment;
+
+    if(currentMemorySegment->NextFreeSegment != 0)
+    {
+        if(currentMemorySegment->NextFreeSegment->PreviusFreeSegment < currentMemorySegment)
+            currentMemorySegment->NextFreeSegment->PreviusFreeSegment = currentMemorySegment;
+    }
+
+    if(currentMemorySegment->PreviusFreeSegment != 0)
+    {
+        if(currentMemorySegment->PreviusFreeSegment->NextFreeSegment > currentMemorySegment)
+            currentMemorySegment->PreviusFreeSegment->NextFreeSegment = currentMemorySegment;
+    }
+
+    if(currentMemorySegment->NextSegment != 0)
+    {
+        currentMemorySegment->NextSegment->PreviusSegment = currentMemorySegment;
+
+        if(currentMemorySegment->NextSegment->Free)
+            CombineFreeSegments(currentMemorySegment, currentMemorySegment->NextSegment);
+    }
+
+    if(currentMemorySegment->PreviusSegment != 0)
+    {
+        currentMemorySegment->PreviusSegment->NextSegment = currentMemorySegment;
+
+        if(currentMemorySegment->PreviusSegment->Free)
+            CombineFreeSegments(currentMemorySegment, currentMemorySegment->PreviusSegment);
+    }
+}
