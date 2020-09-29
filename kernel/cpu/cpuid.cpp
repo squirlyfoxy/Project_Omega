@@ -2,8 +2,6 @@
 
 #include "../include/cpu/cpuid.h"
 
-#define cpuid(in, a, b, c, d) __asm__("cpuid": "=a" (a), "=b" (b), "=c" (c), "=d" (d) : "a" (in));
-
 void Amd();
 void Intel();
 void DetectCPU();
