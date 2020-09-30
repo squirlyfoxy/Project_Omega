@@ -5,17 +5,27 @@
 
 ## How To build?
 
+To compile just run the "build.bat" script from a windows pc, to do this you will need some installed programs and a WSL distribution (Windows Subsystem For Linux).
+The programs you will need to have are:
+* NASM (Installed on windows)
+* GCC-x86_64-elf cross compiler (Installed on WSL)
+
 ## Fetures
 
 * CPU
 
-   * [x] CPUID (In Development)
-   * [ ] MSR
+   * [x] <b>CPUID (In Development)</b>
+   * [ ] <b>MSR</b>
 
 * Drivers
 
-   * [x] COM1 Driver (For Debugging)
-   * [x] 80x35 VGA Driver
-   * [x] Keyborad Basic Driver
+   * [x] <b>COM1 Driver (For Debugging)</b>
+   * [x] <b>80x35 VGA Driver</b>
+   * [x] <b>Keyborad Basic Driver</b>
 
-Memory Management
+* Memory Management
+
+   * [x] <b>GDT</b>
+   * [x] <b>IDT</b>
+   * [x] <b>free</b>
+   * [x] <b>malloc</b>
