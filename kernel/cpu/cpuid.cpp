@@ -25,6 +25,7 @@ void DetectCPU()
 	break;
 	default:
 		printf("Unknown x86 CPU Detected\n\r");
+        return;
 	break;
 	}
 

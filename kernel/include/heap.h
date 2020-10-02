@@ -1,3 +1,6 @@
+#ifndef _HEAP_H
+#define _HEAP_H
+
 #include "typedef.h"
 
 struct MemorySegmentHeader 
@@ -9,3 +12,5 @@ struct MemorySegmentHeader
     MemorySegmentHeader* PreviusFreeSegment;
     bool Free;
 };
+
+#endif

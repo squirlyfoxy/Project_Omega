@@ -1,3 +1,6 @@
+#ifndef _KPRINT_H
+#define _KPRINT_H
+
 #define VGA_MEMORY (unsigned char*) 0xb8000
 
 #define VGA_WIDTH 80
@@ -45,3 +48,5 @@ enum BackgroundColors
     BACKGROUND_BLICKINYELLOW = 0xE0,
     BACKGROUND_BLICKINWHYTE = 0xF0
 };
+
+#endif
