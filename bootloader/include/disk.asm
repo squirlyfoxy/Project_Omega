@@ -3,9 +3,6 @@ readDisk:
     mov ah, 0x02
     mov bx, KERNEL_SPACE   ; Where code will put in memory?
 
-    ; TODO: CALC HOW MANY SECTOR WE NEED TO READ (CONTERRANNO LA PRIMA PARTE DEL KERNEL)
-    ; Come farlo? Il kernel ha un flag nei suoi primi byte che convertito in ascii sarà: "K_FRStage", trovalo e avremo il settore da dove iniziare
-    ; Per capire quanti settori leggere faremo AL++ finchè non raggiungeremo un'altro flag di fine kernel (da decidere)
     mov al, KPT_ENTRY               ; How many sectors?
 
     mov dl, [BOOT_DISK]     ; From Where?
