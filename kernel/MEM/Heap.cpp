@@ -2,6 +2,8 @@
 
 #include "../include/heap.h"
 
+void* malloc(uint_64 size);
+
 MemorySegmentHeader* FirstFreeMemorySegment;
 
 void InitHeap(uint_64 heapAddress, uint_64 heapLenght)
