@@ -88,7 +88,12 @@ LongMode:
 	mov dr0, rax	; Set CPU0
 
     ; Now we are in Long Mode!!!
+    ; Check for SSE Support
+    mov eax, 0x1
+    cpuid
+    test edx, 1 << 25
     call ActivateSSE
+
     call _start
 
     jmp $                           ; Halt the processor.

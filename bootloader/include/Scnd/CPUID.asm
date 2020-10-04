@@ -37,5 +37,5 @@ NoLongMode:
     call ProtectedPrintf
     hlt
 
-NoCPUIDStr: db "ERRNO 0x01: CPUID Not Supported", 0
-NoLongModeStr: db "ERRNO 0x02: LMode Not Supported", 0
+NoCPUIDStr: db "ERRNO 0x01: CPUID Not Supported", 10, 13, 0
+NoLongModeStr: db "ERRNO 0x02: LMode Not Supported", 10, 13, 0
