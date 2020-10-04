@@ -49,20 +49,14 @@ extern "C" void _start()
     //MainKeyboardHandler = KeyboardHandler;
     MemoryMapEntry** usableMemoryMaps = GetUsableMemoryRegions();
 
-    void* TestMemoryAddress = malloc(0x10);
-    void* TestMemoryAddress2 = malloc(0x10);
-    void* TestMemoryAddress3 = malloc(0x10);
+    uint_64* TestAddress = (uint_64*)(malloc(0x08));
+    *TestAddress = 12345678;
+    printf(itoa(*TestAddress)); printf("\n\r"); //12345678
 
-    printf(HexToString((uint_64)TestMemoryAddress)); printf("\n\r");
-    printf(HexToString((uint_64)TestMemoryAddress2)); printf("\n\r");
-    printf(HexToString((uint_64)TestMemoryAddress3)); printf("\n\r");
+    uint_64* TestAddress2 = (uint_64*)(realloc(TestAddress, 0x08));
+    printf(itoa(*TestAddress2)); printf("\n\r"); //12345678
 
-    free(TestMemoryAddress);
-    free(TestMemoryAddress2);
-    free(TestMemoryAddress3);
-
-    void* Test4 = malloc(0x60);
-    printf(HexToString((uint_64)Test4)); printf("\n\r");
-    
+    uint_64* TestAddress3 = (uint_64*)(calloc(0x08));
+    printf(itoa(*TestAddress3)); printf("\n\r"); //0
     return;
 }

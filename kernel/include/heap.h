@@ -14,4 +14,11 @@ struct MemorySegmentHeader
     bool Free;
 };
 
+void* malloc(uint_64 size);
+void* realloc(void* address, uint_64 newSize);
+void* calloc(uint_64 size);
+void* calloc(uint_64 num, uint_64 size);
+void CombineFreeSegments(MemorySegmentHeader* a, MemorySegmentHeader* b);
+void free(void* address);
+
 #endif

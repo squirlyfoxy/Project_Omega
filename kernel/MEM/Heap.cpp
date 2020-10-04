@@ -2,8 +2,6 @@
 
 #include "../include/heap.h"
 
-void* malloc(uint_64 size);
-
 MemorySegmentHeader* FirstFreeMemorySegment;
 
 void InitHeap(uint_64 heapAddress, uint_64 heapLenght)
@@ -15,6 +13,21 @@ void InitHeap(uint_64 heapAddress, uint_64 heapLenght)
     FirstFreeMemorySegment->NextFreeSegment = 0;
     FirstFreeMemorySegment->PreviusFreeSegment = 0;
     FirstFreeMemorySegment->Free = true;
+}
+
+void* realloc(void* address, uint_64 newSize)
+{
+    MemorySegmentHeader* oldSegmentHeader = (MemorySegmentHeader*)(address - 1);
+    uint_64 smallerSize = newSize;
+
+    if(oldSegmentHeader->MemoryLenght < newSize)
+        smallerSize =oldSegmentHeader->MemoryLenght;
+    
+    void* newMem = malloc(newSize);
+    memcpy(newMem, address, smallerSize);
+    free(address);
+
+    return newMem;
 }
 
 void* calloc(uint_64 size)
