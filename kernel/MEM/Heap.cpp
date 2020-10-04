@@ -15,6 +15,20 @@ void InitHeap(uint_64 heapAddress, uint_64 heapLenght)
     FirstFreeMemorySegment->Free = true;
 }
 
+void* calloc(uint_64 size)
+{
+    void* mallocVal = malloc(size);
+
+    memset(mallocVal, 0, size);
+
+    return mallocVal;
+}
+
+void* calloc(uint_64 num, uint_64 size)
+{
+    return calloc(num * size);
+}
+
 void* malloc(uint_64 size)
 {
     uint_64 remainder = size % 8;

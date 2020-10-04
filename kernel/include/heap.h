@@ -2,6 +2,7 @@
 #define _HEAP_H
 
 #include "typedef.h"
+#include "../MEM/memory.cpp"
 
 struct MemorySegmentHeader 
 {
