@@ -41,7 +41,7 @@ char ReadCharSerial()
 }
 
 //Sending Data
-void WriteCharSerial(char a)
+void WriteCharSerial(const char a)
 {
     struct whait
     {
@@ -56,7 +56,7 @@ void WriteCharSerial(char a)
     outb(port,a);
 }
 
-void WriteStringSerial(char* str)
+void WriteStringSerial(string str)
 {
     for (uint_32 i = 0; i < strlen(str); ++i) {
 		WriteCharSerial(str[i]);

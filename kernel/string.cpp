@@ -99,7 +99,7 @@ const char* FloatToString(float val, uint_8 decimalPlaces = 2)
     return floatToStringOutput;
 }
 
-uint_32 strlen(char* str)
+uint_32 strlen(string str)
 {
     uint_32 c = 0;
 

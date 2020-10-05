@@ -35,7 +35,7 @@ void ClearScreen(uint_64 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
     SetCursorPosition(0);
 }
 
-void printf(const char* str, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
+void printf(string str, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
 {
     uint_8* charPtr = (uint_8*)str;
     uint_16 index = CurrentCursorPosition;
