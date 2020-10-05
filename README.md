@@ -22,6 +22,10 @@ The programs you will need to have are:
    * [x] <b>COM1 Driver (For Debugging)</b>
    * [x] <b>80x35 VGA Driver</b>
    * [x] <b>Keyborad Basic Driver</b>
+   
+* File System
+   * [ ] <b>PrOFS (Project Omega File System), in development</b>
+   * [ ] <b>FAT</b>
 
 * Memory Management
 
@@ -29,3 +33,7 @@ The programs you will need to have are:
    * [x] <b>IDT</b>
    * [x] <b>free</b>
    * [x] <b>malloc</b>
+   
+* Bootloader
+   * [x] <b>Custom Homemade Bootloader</b>
+   * [x] <b>Multiboot v.1 Support</b>
