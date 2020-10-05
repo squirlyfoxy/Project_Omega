@@ -2,6 +2,21 @@
 
 jmp _main
 
+; multiboot header
+MODULEALIGN:        equ        1<<0
+MEMINFO:            equ        1<<1
+FLAGS:              equ        MODULEALIGN | MEMINFO
+MAGIC:              equ        0x1BADB002
+CHECKSUM:           equ        -(MAGIC + FLAGS)
+ 
+section .text      ; Next is the Grub Multiboot Header
+ 
+align 4
+MultiBootHeader:
+       dd MAGIC
+       dd FLAGS
+       dd CHECKSUM
+
 ; Presentation string (Kernel first stage)
 PR2: db "K_Entry", 0
 
@@ -10,6 +25,9 @@ PR2: db "K_Entry", 0
 %include "Scnd/Memory.asm"
 
 _main:
+    push eax
+    push ebx
+
     call DetectMemory
 
     EnterProtectedMode:
