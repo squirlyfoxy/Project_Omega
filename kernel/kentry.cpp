@@ -58,5 +58,9 @@ extern "C" void _start()
 
     uint_64* TestAddress3 = (uint_64*)(calloc(0x08));
     printf(itoa(*TestAddress3)); printf("\n\r"); //0
+
+    char* str = "memmove can be very useful......";
+    memmove (str+20,str+15,11);
+    printf(str);
     return;
 }

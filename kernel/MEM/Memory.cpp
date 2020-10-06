@@ -2,6 +2,20 @@
 
 #include "../include/memory.h"
 
+void* memmove(void* dstptr, const void* srcptr, uint_64 size)
+{
+	unsigned char* dst = (unsigned char*) dstptr;
+	const unsigned char* src = (const unsigned char*) srcptr;
+	if (dst < src) {
+		for (uint_64 i = 0; i < size; i++)
+			dst[i] = src[i];
+	} else {
+		for (uint_64 i = size; i != 0; i--)
+			dst[i-1] = src[i-1];
+	}
+	return dstptr;
+}
+
 void memcpy(void* destination, void* source, uint_64 num)
 {
     if(num <= 8) //8 bytes

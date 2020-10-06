@@ -2,6 +2,7 @@
 #define _TYPEDEF_H
 
 #include <stdbool.h>
+#include <stddef.h>
 
 typedef unsigned char uint_8;
 typedef unsigned short uint_16;
