@@ -46,21 +46,14 @@ extern "C" void _start()
 
     WriteStringSerial("Project Omega Initializated!");
 
-    //MainKeyboardHandler = KeyboardHandler;
-    MemoryMapEntry** usableMemoryMaps = GetUsableMemoryRegions();
+    MainKeyboardHandler = KeyboardHandler;
+    for(int i = 0; i < 25; i++)
+    {
+        printf("AA\n\r");
 
-    uint_64* TestAddress = (uint_64*)(malloc(0x08));
-    *TestAddress = 12345678;
-    printf(itoa(*TestAddress)); printf("\n\r"); //12345678
-
-    uint_64* TestAddress2 = (uint_64*)(realloc(TestAddress, 0x08));
-    printf(itoa(*TestAddress2)); printf("\n\r"); //12345678
-
-    uint_64* TestAddress3 = (uint_64*)(calloc(0x08));
-    printf(itoa(*TestAddress3)); printf("\n\r"); //0
-
-    char* str = "memmove can be very useful......";
-    memmove (str+20,str+15,11);
-    printf(str);
+        for (int x = 0; x < 40000000; x++)
+        { }      
+    }
+    
     return;
 }

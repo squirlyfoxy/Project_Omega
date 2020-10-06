@@ -3,6 +3,7 @@
 #include "./include/ports/IO.cpp"
 #include "./include/kprint.h"
 #include "./include/typedef.h"
+#include "./MEM/Memory.cpp"
 
 uint_16 CurrentCursorPosition;
 
@@ -35,6 +36,29 @@ void ClearScreen(uint_64 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
     SetCursorPosition(0);
 }
 
+void PrintChar(char ch, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
+{
+    *(VGA_MEMORY + CurrentCursorPosition * 2) = ch;
+    *(VGA_MEMORY + CurrentCursorPosition * 2 + 1) = color;
+
+    SetCursorPosition(CurrentCursorPosition + 1);
+}
+
+void FillLine(uint_8 y, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
+{
+    uint_16 prevCursorPosition = CurrentCursorPosition;
+
+    SetCursorPosition(PositionFromCords(0, y));
+
+    for(int i = 0; i < VGA_WIDTH; i++)
+    {
+        PrintChar(0, color);
+        SetCursorPosition(PositionFromCords(i, y));
+    }
+
+    SetCursorPosition(prevCursorPosition);
+}
+
 void printf(string str, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
 {
     uint_8* charPtr = (uint_8*)str;
@@ -45,7 +69,14 @@ void printf(string str, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
         switch (*charPtr)
         {
         case 10:
-            index += VGA_WIDTH;
+            if (CurrentCursorPosition >= PositionFromCords(0, VGA_HEIGHT))
+            {
+                memmove(VGA_MEMORY, VGA_MEMORY + 80*2, 80*25*2);
+
+                FillLine(VGA_HEIGHT - 1);
+                index -= VGA_WIDTH;
+            } else
+                index += VGA_WIDTH;
 
             break;
         case 13:
@@ -59,17 +90,8 @@ void printf(string str, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
             break;
         }
 
-
         charPtr++;
     }
 
     SetCursorPosition(index);
-}
-
-void PrintChar(char ch, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
-{
-    *(VGA_MEMORY + CurrentCursorPosition * 2) = ch;
-    *(VGA_MEMORY + CurrentCursorPosition * 2 + 1) = color;
-
-    SetCursorPosition(CurrentCursorPosition + 1);
 }

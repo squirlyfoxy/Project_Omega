@@ -44,6 +44,7 @@ void StandardKeyboardHandler(uint_8 scanCode, uint_8 chr)
             rightShiftPressed = false;
                 break;
             case 0x9c: //Enter
+            //FIX: When the terminal scrolls down, i need to push the "enter" key 2 tymes for a new line
             printf("\n\r");
                 break;
         }
