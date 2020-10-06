@@ -9,6 +9,8 @@ uint_16 CurrentCursorPosition;
 
 void SetCursorPosition(uint_16 position)
 {
+    //TODO: Move Scrolldown from printf to here
+    //TODO: Add Scrollup function
     outb(0x3d4, 0x0F);
     outb(0x3d5, (uint_8)(position & 0xFF));
     outb(0x3d4, 0x0e);

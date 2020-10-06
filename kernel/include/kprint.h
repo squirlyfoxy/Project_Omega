@@ -8,6 +8,14 @@
 
 #include "typedef.h"
 
+void SetCursorPosition(uint_16 position);
+uint_16 PositionFromCords(uint_8 x, uint_8 y);
+void ClearScreen(uint_64 color);
+void PrintChar(char ch, uint_8 color);
+void FillLine(uint_8 y, uint_8 color);
+void printf(string str, uint_8 color);
+
+
 //VGA Colors
 //Foreground
 enum ForegroundColors
