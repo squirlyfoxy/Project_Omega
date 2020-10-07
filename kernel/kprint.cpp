@@ -71,12 +71,12 @@ void printf(string str, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
         switch (*charPtr)
         {
         case 10:
-            if (CurrentCursorPosition >= PositionFromCords(0, VGA_HEIGHT))
+            if (CurrentCursorPosition >= PositionFromCords(0, VGA_HEIGHT - 1))
             {
                 memmove(VGA_MEMORY, VGA_MEMORY + 80*2, 80*25*2);
 
                 FillLine(VGA_HEIGHT - 1);
-                index -= VGA_WIDTH;
+                index = PositionFromCords(0, VGA_HEIGHT - 1);
             } else
                 index += VGA_WIDTH;
 
