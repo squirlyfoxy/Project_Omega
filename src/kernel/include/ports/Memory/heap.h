@@ -1,8 +1,10 @@
+#pragma once
+
 #ifndef _HEAP_H
 #define _HEAP_H
 
-#include "typedef.h"
-#include "../MEM/memory.cpp"
+#include "../../typedef.h"
+#include "memory.h"
 
 struct MemorySegmentHeader 
 {
@@ -14,6 +16,7 @@ struct MemorySegmentHeader
     bool Free;
 };
 
+void InitHeap(uint_64 heapAddress, uint_64 heapLenght);
 void* malloc(uint_64 size);
 void* realloc(void* address, uint_64 newSize);
 void* calloc(uint_64 size);

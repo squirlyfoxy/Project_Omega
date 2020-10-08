@@ -1,7 +1,8 @@
+#pragma once
+
 #ifndef _CPUID_H
 #define _CPUID_H
 
-#include "../../kprint.cpp"
 #include "../typedef.h"
 #include "msr.h"
 
@@ -9,8 +10,6 @@
 #define AMD_VENDOR_ID 0x68747541
 
 #define cpuid(in, a, b, c, d) __asm__("cpuid": "=a" (a), "=b" (b), "=c" (c), "=d" (d) : "a" (in));
-
-char* cpuName;
 
 struct MSR
 {
@@ -21,5 +20,9 @@ struct MSR
         return ebx & CPUID_FLAG_MSR;
     }
 };
+
+void Amd();
+void Intel();
+uint_16 DetectCPU();
 
 #endif

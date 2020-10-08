@@ -17,14 +17,14 @@
         - Eseguire il programma di init passandogli il comando sulla cpu (ritornerà un codice di errore, se necessario)
         - Controlla il codice di errore, se è tutto ok passa il controllo all'utente; altrimenti kernel panic
     */
-#include "kprint.cpp"
-#include "string.cpp"
+#include "include/kprint.h"
+#include "include/string.h"
 //#include "./include/ports/idt.h"
-#include "IDT/Keyboard/Keyboard.cpp"
-#include "MEM/MemoryMap.cpp"
-#include "MEM/Heap.cpp"
-#include "./drivers/serial.cpp"
-#include "./cpu/cpuid.cpp"
+#include "include/ports/Keyboard/keyboard.h"
+#include "include/ports/Memory/memory_map.h"
+#include "include/ports/Memory/heap.h"
+#include "include/drivers/serial.h"
+#include "include/cpu/cpuid.h"
 
 extern "C" void _start()
 {   

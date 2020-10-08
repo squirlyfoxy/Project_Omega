@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef _KPRINT_H
 #define _KPRINT_H
 
@@ -7,14 +9,8 @@
 #define VGA_HEIGHT 25
 
 #include "typedef.h"
-
-void SetCursorPosition(uint_16 position);
-uint_16 PositionFromCords(uint_8 x, uint_8 y);
-void ClearScreen(uint_64 color);
-void PrintChar(char ch, uint_8 color);
-void FillLine(uint_8 y, uint_8 color);
-void printf(string str, uint_8 color);
-
+#include "./ports/Memory/memory.h"
+#include "./ports/IO.h"
 
 //VGA Colors
 //Foreground
@@ -56,5 +52,13 @@ enum BackgroundColors
     BACKGROUND_BLICKINYELLOW = 0xE0,
     BACKGROUND_BLICKINWHYTE = 0xF0
 };
+
+void SetCursorPosition(uint_16 position);
+uint_16 PositionFromCords(uint_8 x, uint_8 y);
+uint_16 GetCurrentCursorPosition();
+void ClearScreen(uint_64 color = BACKGROUND_BLACK | FOREGROUND_WHYTE);
+void PrintChar(char ch, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE);
+void FillLine(uint_8 y, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE);
+void printf(string str, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE);
 
 #endif

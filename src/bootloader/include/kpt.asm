@@ -1,1 +1,1 @@
-KPT_ENTRY: equ 36
+KPT_ENTRY: equ 27

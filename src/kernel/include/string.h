@@ -1,4 +1,5 @@
 #pragma one
+
 #include "./typedef.h"
 
 template <typename T>

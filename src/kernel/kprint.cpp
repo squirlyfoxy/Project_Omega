@@ -1,11 +1,11 @@
-#pragma once
-
-#include "./include/ports/IO.h"
 #include "./include/kprint.h"
-#include "./include/typedef.h"
-#include "./MEM/Memory.cpp"
 
 uint_16 CurrentCursorPosition;
+
+uint_16 GetCurrentCursorPosition()
+{
+    return CurrentCursorPosition;
+}
 
 void SetCursorPosition(uint_16 position)
 {
@@ -24,7 +24,7 @@ uint_16 PositionFromCords(uint_8 x, uint_8 y)
     return y * VGA_WIDTH + x;
 }
 
-void ClearScreen(uint_64 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
+void ClearScreen(uint_64 color)
 {
     uint_64 val = 0;
     val += color << 8;
@@ -38,7 +38,7 @@ void ClearScreen(uint_64 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
     SetCursorPosition(0);
 }
 
-void PrintChar(char ch, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
+void PrintChar(char ch, uint_8 color)
 {
     *(VGA_MEMORY + CurrentCursorPosition * 2) = ch;
     *(VGA_MEMORY + CurrentCursorPosition * 2 + 1) = color;
@@ -46,7 +46,7 @@ void PrintChar(char ch, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
     SetCursorPosition(CurrentCursorPosition + 1);
 }
 
-void FillLine(uint_8 y, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
+void FillLine(uint_8 y, uint_8 color)
 {
     uint_16 prevCursorPosition = CurrentCursorPosition;
 
@@ -61,7 +61,7 @@ void FillLine(uint_8 y, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
     SetCursorPosition(prevCursorPosition);
 }
 
-void printf(string str, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHYTE)
+void printf(string str, uint_8 color)
 {
     uint_8* charPtr = (uint_8*)str;
     uint_16 index = CurrentCursorPosition;

@@ -1,7 +1,6 @@
 #pragma once
 
-#include "../../include/typedef.h"
-#include "../../kprint.cpp"
+#include "../../include/ports/Keyboard/keyboard.h"
 
 bool leftShiftPressed = false;
 bool rightShiftPressed = false;
@@ -27,9 +26,9 @@ void StandardKeyboardHandler(uint_8 scanCode, uint_8 chr)
         switch (scanCode)
         {
             case 0x8e: //Backspace
-            SetCursorPosition(CurrentCursorPosition - 1);
+            SetCursorPosition(GetCurrentCursorPosition() - 1);
             PrintChar(' ');
-            SetCursorPosition(CurrentCursorPosition - 1);
+            SetCursorPosition(GetCurrentCursorPosition() - 1);
                 break;
             case 0x2a: //Left shift
             leftShiftPressed = true;
@@ -56,10 +55,10 @@ void KeyboardHandler0xe0(uint_8 scanCode)
     switch (scanCode)
     {
     case 0x50: //DOWN
-        SetCursorPosition(CurrentCursorPosition + VGA_WIDTH);
+        SetCursorPosition(GetCurrentCursorPosition() + VGA_WIDTH);
         break;
     case 0x48: //UP
-        SetCursorPosition(CurrentCursorPosition - VGA_WIDTH);
+        SetCursorPosition(GetCurrentCursorPosition() - VGA_WIDTH);
         break;
     default:
         break;

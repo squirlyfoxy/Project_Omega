@@ -1,6 +1,4 @@
-#pragma once
-
-#include "../include/heap.h"
+#include "../include/ports/Memory/heap.h"
 
 MemorySegmentHeader* FirstFreeMemorySegment;
 

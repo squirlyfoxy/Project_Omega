@@ -1,6 +1,4 @@
-#pragma once
-
-#include "../include/memory.h"
+#include "../include/ports/Memory/memory.h"
 
 void* memmove(void* dstptr, const void* srcptr, uint_64 size)
 {

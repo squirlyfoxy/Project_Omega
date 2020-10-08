@@ -1,15 +1,4 @@
-#pragma one
-#include "../include/typedef.h"
-#include "../kprint.cpp"
-#include "../include/string.h"
-
-struct MemoryMapEntry
-{
-    uint_64 BaseAddress;
-    uint_64 RegionLenght;
-    uint_32 RegionType;
-    uint_32 ExtendedAttributes;
-};
+#include "../include/ports/Memory/memory_map.h"
 
 extern uint_8 MemoryRegionCount;
 uint_8 UsableMemoryRegionsCount = 0;
