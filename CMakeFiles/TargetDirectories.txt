@@ -1,3 +1,0 @@
-/mnt/c/Users/foxch/Desktop/Project_Omega/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/foxch/Desktop/Project_Omega/CMakeFiles/edit_cache.dir
-/mnt/c/Users/foxch/Desktop/Project_Omega/CMakeFiles/kernel.dir
