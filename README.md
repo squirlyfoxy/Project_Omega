@@ -8,7 +8,11 @@
 To compile just run the "build.bat" script from a windows pc, to do this you will need some installed programs and a WSL distribution (Windows Subsystem For Linux).
 The programs you will need to have are:
 * NASM (Installed on windows)
+* Python (Installed on windows)
 * GCC-x86_64-elf cross compiler (Installed on WSL)
+* CMAKE (Installed on WSL)
+
+To build just run "build.bat", the magic of scripts will do everything for you!
 
 ## Fetures
 
@@ -33,6 +37,10 @@ The programs you will need to have are:
    * [x] <b>IDT</b>
    * [x] <b>free</b>
    * [x] <b>malloc</b>
+   * [x] <b>realloc</b>
+   * [x] <b>memmove</b>
+   * [x] <b>memcpy</b>
+   * [x] <b>memset</b>
    
 * Bootloader
    * [x] <b>Custom Homemade Bootloader</b>
