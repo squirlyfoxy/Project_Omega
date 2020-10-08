@@ -1,0 +1,1 @@
+E:\Programmi\qemu\qemu-system-x86_64.exe .\out\boot.bin
