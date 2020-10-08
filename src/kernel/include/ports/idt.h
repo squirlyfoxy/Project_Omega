@@ -10,6 +10,6 @@
 void IDTinit();
 extern "C" void isr1Handler();
 
-void (*MainKeyboardHandler) (uint_8 scanCode, uint_8 chr);
+extern void (*MainKeyboardHandler) (uint_8 scanCode, uint_8 chr);
 
 #endif

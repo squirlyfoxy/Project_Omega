@@ -2,6 +2,8 @@
 
 #include "../include/ports/idt.h"
 
+void (*MainKeyboardHandler) (uint_8 scanCode, uint_8 chr);
+
 //Interrupt Descriptor Table
 struct IDT64
 {
