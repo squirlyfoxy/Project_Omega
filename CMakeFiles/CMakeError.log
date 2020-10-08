@@ -1,0 +1,159 @@
+Detecting C compiler ABI info failed to compile with the following output:
+
+
+
+Determining if the C compiler works failed with the following output:
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: ubuntu run $HOME/opt/cross/bin/x86_64-elf-gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+Impossibile trovare il file specificato
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: ubuntu run $HOME/opt/cross/bin/x86_64-elf-gcc 
+Build flags: 
+Id flags: -c 
+
+The output was:
+Impossibile trovare il file specificato
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: ubuntu run $HOME/opt/cross/bin/x86_64-elf-gcc 
+Build flags: 
+Id flags: --c++ 
+
+The output was:
+Impossibile trovare il file specificato
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: ubuntu run $HOME/opt/cross/bin/x86_64-elf-gcc 
+Build flags: 
+Id flags: --ec++ 
+
+The output was:
+Impossibile trovare il file specificato
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: ubuntu run $HOME/opt/cross/bin/x86_64-elf-gcc 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+Impossibile trovare il file specificato
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: ubuntu run $HOME/opt/cross/bin/x86_64-elf-gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+Impossibile trovare il file specificato
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: ubuntu run $HOME/opt/cross/bin/x86_64-elf-gcc 
+Build flags: 
+Id flags: -c 
+
+The output was:
+Impossibile trovare il file specificato
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: ubuntu run $HOME/opt/cross/bin/x86_64-elf-gcc 
+Build flags: 
+Id flags: --c++ 
+
+The output was:
+Impossibile trovare il file specificato
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: ubuntu run $HOME/opt/cross/bin/x86_64-elf-gcc 
+Build flags: 
+Id flags: --ec++ 
+
+The output was:
+Impossibile trovare il file specificato
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: ubuntu run $HOME/opt/cross/bin/x86_64-elf-gcc 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+Impossibile trovare il file specificato
+
+
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+Detecting C compiler ABI info failed to compile with the following output:
+
+
+
+Determining if the C compiler works failed with the following output:
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /home/squirly/opt/cross/bin/x86_64-elf-gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+collect2: fatal error: cannot find 'ld'
+compilation terminated.
+
+
+Determining if the C compiler works failed with the following output:
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /home/squirly/opt/cross/bin/x86_64-elf-gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+collect2: fatal error: cannot find 'ld'
+compilation terminated.
+
+
+Determining if the C compiler works failed with the following output:
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /home/squirly/opt/cross/bin/x86_64-elf-gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+collect2: fatal error: cannot find 'ld'
+compilation terminated.
+
+
+Determining if the C compiler works failed with the following output:
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /home/squirly/opt/cross/bin/x86_64-elf-gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+collect2: fatal error: cannot find 'ld'
+compilation terminated.
+
+

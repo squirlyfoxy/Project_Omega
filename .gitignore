@@ -1,2 +1,3 @@
-./.vscode
-./out
+out/*
+out/boot.bin
+./libkernel.a

@@ -37,7 +37,7 @@ if isinstance(nBitForHDD / 8, float):
 
 print("The kernel will be indexed with: ", (int(nBitForHDD / 8)), " bytes")
 
-f = open("../bootloader/include/kpt.asm", "w+") # Crea il file tabella dentro bootloader
+f = open("../src/bootloader/include/kpt.asm", "w+") # Crea il file tabella dentro bootloader
 toWrite = "KPT_ENTRY: equ " + (str)(nBlock) + "\r\n"
 
 f.write(toWrite)

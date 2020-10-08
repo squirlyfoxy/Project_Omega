@@ -5,7 +5,7 @@ ENTRY(_start)
 INPUT
 (
     ./out/k1.o
-    ./out/kentry.o
+    ./libkernel.a
 )
 
 OUTPUT

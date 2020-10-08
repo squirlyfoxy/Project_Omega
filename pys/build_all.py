@@ -2,8 +2,8 @@
 
 import os, shutil
 
-boot_str = "../bootloader/"
-kernel_str = "../kernel/"
+boot_str = "../src/bootloader/"
+kernel_str = "../src/kernel/"
 out_str = "../out/"
 
 print("=| Project Omega Builder |=")
@@ -21,12 +21,12 @@ print("- OK Stage 1")
 
 # Building Stage 2 (C++)
 print("- Building stage 2, C++: ....")
-os.chdir(kernel_str)
-os.system('cmd /c "ubuntu run make"')
+
+os.system("ubuntu run export cc=$HOME/opt/cross/bin/x86_64-elf-gcc")
+os.system("ubuntu run export cxx=$HOME/opt/cross/bin/x86_64-elf-gcc")
+os.system("ubuntu run cmake ../CMakeLists.txt -G 'Unix Makefiles'")
 os.chdir("../")
-shutil.move("kernel/" + "kentry.o", "out/" + "kentry.o")
-print("- Running linker.ld")
-os.system("ubuntu run $HOME/opt/cross/x86_64-elf/bin/x86_64-elf-ld -T 'linker.ld'")
+os.system("ubuntu run make -f 'Makefile'")
 
 print("- OK Stage 2")
 
@@ -50,3 +50,4 @@ os.system('copy /B /Y "bootloader.bin"+"kernel.bin" "boot.bin"')
 print("- OK")
 
 os.system("del bootloader.bin *.o kernel.bin kentry.bin")
+os.chdir("../")
