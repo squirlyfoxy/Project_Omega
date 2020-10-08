@@ -15,8 +15,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/kernel.dir/src/kernel/kentry.cpp.o"
   "CMakeFiles/kernel.dir/src/kernel/kprint.cpp.o"
   "CMakeFiles/kernel.dir/src/kernel/string.cpp.o"
-  "libkernel.a"
-  "libkernel.pdb"
+  "out/libkernel.a"
+  "out/libkernel.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

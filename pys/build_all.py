@@ -11,6 +11,10 @@ print("BOOTLOADER Path: ", boot_str)
 print("KERNEL Path: ", kernel_str)
 print("OUTPUT BINARYES Path: ", out_str)
 
+print("Cleaning output folder")
+os.chdir(out_str)
+os.system("del /F /Q *")
+
 # Per prima cosa individuiamo il nostro obbiettivo: automatizzare il build del SO rendendolo scalabile a prossimi updates
 # Prima cosa da fare (per poter eseguire kpt.py) è procedere con il build del kernel
 print("Building Kernel: ")

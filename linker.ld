@@ -5,12 +5,7 @@ ENTRY(_start)
 INPUT
 (
     ./out/k1.o
-    ./libkernel.a
-)
-
-OUTPUT
-(
-    ./out/kernel.bin
+    ./out/libkernel.a
 )
 
 SECTIONS

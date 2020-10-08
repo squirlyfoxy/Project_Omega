@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "libkernel.a"
+  "out/libkernel.a"
 )
