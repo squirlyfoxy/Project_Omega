@@ -6,11 +6,11 @@
 
 struct MemorySegmentHeader 
 {
-    uint_64 MemoryLenght;
+    uint_64 MemoryLength;
     MemorySegmentHeader* NextSegment;
     MemorySegmentHeader* NextFreeSegment;
-    MemorySegmentHeader* PreviusSegment;
-    MemorySegmentHeader* PreviusFreeSegment;
+    MemorySegmentHeader* PreviousSegment ;
+    MemorySegmentHeader* PreviousFreeSegment ;
     bool Free;
 };
 

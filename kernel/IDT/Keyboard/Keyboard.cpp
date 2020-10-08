@@ -55,10 +55,10 @@ void KeyboardHandler0xe0(uint_8 scanCode)
 {
     switch (scanCode)
     {
-    case 0x50:
+    case 0x50: //DOWN
         SetCursorPosition(CurrentCursorPosition + VGA_WIDTH);
         break;
-    case 0x48:
+    case 0x48: //UP
         SetCursorPosition(CurrentCursorPosition - VGA_WIDTH);
         break;
     default:
