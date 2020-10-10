@@ -19,7 +19,7 @@
     */
 #include "include/kprint.h"
 #include "include/string.h"
-#include "./include/ports/idt.h"
+#include "./include/ports/idt/idt.h"
 #include "include/ports/Keyboard/keyboard.h"
 #include "include/ports/Memory/memory_map.h"
 #include "include/ports/Memory/heap.h"
@@ -42,18 +42,11 @@ extern "C" void _start()
     InitSerial(COM1);
     printf("(OK) \n\r");
 
-    //printf(HexToString(DetectCPU()));
+    //printf(itoa(DetectCPU()));
 
     WriteStringSerial("Project Omega Initializated!");
 
-    //MainKeyboardHandler = KeyboardHandler;
-    for(int i = 0; i < 25; i++)
-    {
-        printf("AA\n\r");
-
-        for (int x = 0; x < 40000000; x++)
-        { }      
-    }
+    MainKeyboardHandler = KeyboardHandler;
     
     return;
 }
