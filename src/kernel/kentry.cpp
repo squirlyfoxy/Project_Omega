@@ -19,7 +19,7 @@
     */
 #include "include/kprint.h"
 #include "include/string.h"
-#include "./include/ports/idt/idt.h"
+#include "include/ports/idt/idt.h"
 #include "include/ports/Keyboard/keyboard.h"
 #include "include/ports/Memory/memory_map.h"
 #include "include/ports/Memory/heap.h"

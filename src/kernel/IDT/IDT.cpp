@@ -196,7 +196,7 @@ extern "C" void isr1Handler()
         MainKeyboardHandler(scanCode, chr);
 
     outb(0x20, 0x20);
-    outb(0xa0, 0x20);
+    outb(0xA0, 0x20);
 }
 
 extern "C" void isr2Handler()
