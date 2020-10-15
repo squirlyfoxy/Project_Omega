@@ -1,8 +1,10 @@
 #include "./include/string.h"
 
+char integerToStringOutput[128];
+char hexToStringOutput[128];
+char floatToStringOutput[128];
 
 //Convert float to string
-char floatToStringOutput[128];
 const char* FloatToString(float val, uint_8 decimalPlaces = 2)
 {
     char* intPtr = (char*)(itoa((int)(val)));
@@ -45,6 +47,5 @@ uint_32 strlen(string str)
         str++;
     }
     
-
     return c;
 }

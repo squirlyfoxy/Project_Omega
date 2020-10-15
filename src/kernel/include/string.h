@@ -9,7 +9,7 @@
 template <typename T>
 const char* HexToString(T value)
 {
-    char hexToStringOutput[128];
+    extern char hexToStringOutput[128];
 
     T* valPtr = &value;
     uint_8* ptr;
@@ -32,7 +32,7 @@ const char* HexToString(T value)
 template <typename T>
 const char* itoa(T value)
 {
-    char integerToStringOutput[128];
+    extern char integerToStringOutput[128];
 
     uint_8 isNegative = 0;
     if(value < 0)
