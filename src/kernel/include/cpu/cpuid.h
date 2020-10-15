@@ -25,4 +25,11 @@ void Amd();
 void Intel();
 uint_16 DetectCPU();
 
+uint_8 GetALValue();
+uint_8 GetAHValue();
+uint_8 GetCLValue();
+uint_8 GetCHValue();
+uint_8 GetBLValue();
+uint_8 GetBHValue();
+
 #endif

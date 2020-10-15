@@ -36,3 +36,69 @@ void Intel()
 {
     //TODO: Intel Support
 }
+
+//Get AL value
+uint_8 GetALValue()
+{
+    uint_8 val;
+
+    //Assembly
+    asm volatile("movb %%al, %0" : "=r" (val));
+
+    return val;
+}
+
+//Get AH value
+uint_8 GetAHValue()
+{
+    uint_8 val;
+
+    //Assembly
+    asm volatile("movb %%ah, %0" : "=r" (val));
+
+    return val;
+}
+
+//Get CL value
+uint_8 GetCLValue()
+{
+    uint_8 val;
+
+    //Assembly
+    asm volatile("movb %%cl, %0" : "=r" (val));
+
+    return val;
+}
+
+//Get CH value
+uint_8 GetCHValue()
+{
+    uint_8 val;
+
+    //Assembly
+    asm volatile("movb %%ch, %0" : "=r" (val));
+
+    return val;
+}
+
+//Get BL value
+uint_8 GetBLValue()
+{
+    uint_8 val;
+
+    //Assembly
+    asm volatile("movb %%bl, %0" : "=r" (val));
+
+    return val;
+}
+
+//Get BL value
+uint_8 GetBHValue()
+{
+    uint_8 val;
+
+    //Assembly
+    asm volatile("movb %%bh, %0" : "=r" (val));
+
+    return val;
+}
