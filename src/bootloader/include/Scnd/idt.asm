@@ -24,165 +24,165 @@ idtDescriptor:
         pop rax
     %endmacro
 
-[extern isr0Handler]
-isr0:
+[extern irq0Handler]
+irq0:
     PUSHALL
 
-    call isr0Handler
+    call irq0Handler
 
     POPHALL
     iretq
-    GLOBAL isr0
+    GLOBAL irq0
 
-[extern isr1Handler]
-isr1:
+[extern irq1Handler]
+irq1:
     PUSHALL
 
-    call isr1Handler
+    call irq1Handler
 
     POPHALL
     iretq
-    GLOBAL isr1
+    GLOBAL irq1
 
-[extern isr2Handler]
-isr2:
+[extern irq2Handler]
+irq2:
     PUSHALL
 
-    call isr2Handler
+    call irq2Handler
 
     POPHALL
     iretq
-    GLOBAL isr2
+    GLOBAL irq2
 
-[extern isr3Handler]
-isr3:
+[extern irq3Handler]
+irq3:
     PUSHALL
 
-    call isr3Handler
+    call irq3Handler
 
     POPHALL
     iretq
-    GLOBAL isr3
+    GLOBAL irq3
 
-[extern isr4Handler]
-isr4:
+[extern irq4Handler]
+irq4:
     PUSHALL
 
-    call isr4Handler
+    call irq4Handler
 
     POPHALL
     iretq
-    GLOBAL isr4
+    GLOBAL irq4
 
-[extern isr5Handler]
-isr5:
+[extern irq5Handler]
+irq5:
     PUSHALL
 
-    call isr5Handler
+    call irq5Handler
 
     POPHALL
     iretq
-    GLOBAL isr5
+    GLOBAL irq5
 
-[extern isr6Handler]
-isr6:
+[extern irq6Handler]
+irq6:
     PUSHALL
 
-    call isr6Handler
+    call irq6Handler
 
     POPHALL
     iretq
-    GLOBAL isr6
+    GLOBAL irq6
 
-[extern isr7Handler]
-isr7:
+[extern irq7Handler]
+irq7:
     PUSHALL
 
-    call isr7Handler
+    call irq7Handler
 
     POPHALL
     iretq
-    GLOBAL isr7
+    GLOBAL irq7
 
-[extern isr8Handler]
-isr8:
+[extern irq8Handler]
+irq8:
     PUSHALL
 
-    call isr8Handler
+    call irq8Handler
 
     POPHALL
     iretq
-    GLOBAL isr8
+    GLOBAL irq8
 
-[extern isr9Handler]
-isr9:
+[extern irq9Handler]
+irq9:
     PUSHALL
 
-    call isr9Handler
+    call irq9Handler
 
     POPHALL
     iretq
-    GLOBAL isr9
+    GLOBAL irq9
 
-[extern isr10Handler]
-isr10:
+[extern irq10Handler]
+irq10:
     PUSHALL
 
-    call isr10Handler
+    call irq10Handler
 
     POPHALL
     iretq
-    GLOBAL isr10
+    GLOBAL irq10
 
-[extern isr11Handler]
-isr11:
+[extern irq11Handler]
+irq11:
     PUSHALL
 
-    call isr11Handler
+    call irq11Handler
 
     POPHALL
     iretq
-    GLOBAL isr11
+    GLOBAL irq11
 
-[extern isr12Handler]
-isr12:
+[extern irq12Handler]
+irq12:
     PUSHALL
 
-    call isr12Handler
+    call irq12Handler
 
     POPHALL
     iretq
-    GLOBAL isr12
+    GLOBAL irq12
 
-[extern isr13Handler]
-isr13:
+[extern irq13Handler]
+irq13:
     PUSHALL
 
-    call isr13Handler
+    call irq13Handler
 
     POPHALL
     iretq
-    GLOBAL isr13
+    GLOBAL irq13
 
-[extern isr14Handler]
-isr14:
+[extern irq14Handler]
+irq14:
     PUSHALL
 
-    call isr14Handler
+    call irq14Handler
 
     POPHALL
     iretq
-    GLOBAL isr14
+    GLOBAL irq14
 
-[extern isr15Handler]
-isr15:
+[extern irq15Handler]
+irq15:
     PUSHALL
 
-    call isr15Handler
+    call irq15Handler
 
     POPHALL
     iretq
-    GLOBAL isr15
+    GLOBAL irq15
 
 LoadIDT:
     lidt[idtDescriptor]

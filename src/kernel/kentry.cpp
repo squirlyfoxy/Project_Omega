@@ -42,8 +42,6 @@ extern "C" void _start()
     InitSerial(COM1);
     printf("(OK) \n\r");
 
-    //printf(itoa(DetectCPU()));
-
     WriteStringSerial("Project Omega Initializated!");
 
     MainKeyboardHandler = KeyboardHandler;

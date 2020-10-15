@@ -420,6 +420,33 @@ src/kernel/MEM/MemoryMap.cpp.s:
 	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/MEM/MemoryMap.cpp.s
 .PHONY : src/kernel/MEM/MemoryMap.cpp.s
 
+src/kernel/cpu/8259.o: src/kernel/cpu/8259.cpp.o
+
+.PHONY : src/kernel/cpu/8259.o
+
+# target to build an object file
+src/kernel/cpu/8259.cpp.o:
+	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/cpu/8259.cpp.o
+.PHONY : src/kernel/cpu/8259.cpp.o
+
+src/kernel/cpu/8259.i: src/kernel/cpu/8259.cpp.i
+
+.PHONY : src/kernel/cpu/8259.i
+
+# target to preprocess a source file
+src/kernel/cpu/8259.cpp.i:
+	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/cpu/8259.cpp.i
+.PHONY : src/kernel/cpu/8259.cpp.i
+
+src/kernel/cpu/8259.s: src/kernel/cpu/8259.cpp.s
+
+.PHONY : src/kernel/cpu/8259.s
+
+# target to generate assembly for a file
+src/kernel/cpu/8259.cpp.s:
+	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/cpu/8259.cpp.s
+.PHONY : src/kernel/cpu/8259.cpp.s
+
 src/kernel/cpu/cpuid.o: src/kernel/cpu/cpuid.cpp.o
 
 .PHONY : src/kernel/cpu/cpuid.o
@@ -597,6 +624,9 @@ help:
 	@echo "... src/kernel/MEM/MemoryMap.o"
 	@echo "... src/kernel/MEM/MemoryMap.i"
 	@echo "... src/kernel/MEM/MemoryMap.s"
+	@echo "... src/kernel/cpu/8259.o"
+	@echo "... src/kernel/cpu/8259.i"
+	@echo "... src/kernel/cpu/8259.s"
 	@echo "... src/kernel/cpu/cpuid.o"
 	@echo "... src/kernel/cpu/cpuid.i"
 	@echo "... src/kernel/cpu/cpuid.s"
