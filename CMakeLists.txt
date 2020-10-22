@@ -17,11 +17,12 @@ set(CMAKE_EXE_LINKER_FLAGS "-T \"linker.ld\" ")
 
 FILE (GLOB_RECURSE kernel_C_SOURCES "${PROJECT_SOURCE_DIR}/src/kernel/*.c")
 FILE (GLOB_RECURSE kernel_CPP_SOURCES "${PROJECT_SOURCE_DIR}/src/kernel/*.cpp")
+FILE (GLOB_RECURSE kernel_O_LIB "${PROJECT_SOURCE_DIR}/out/syslib/*.o")
 
 ADD_LIBRARY (kernel STATIC
                 ${kernel_C_SOURCES}
                 ${kernel_CPP_SOURCES}
-                ${PROJECT_SOURCE_DIR}/out/syslib/omath.o
+                ${kernel_O_LIB}
             )
 
 ADD_CUSTOM_COMMAND (
