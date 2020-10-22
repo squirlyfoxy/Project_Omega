@@ -123,114 +123,6 @@ kernel/fast:
 	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/build
 .PHONY : kernel/fast
 
-CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.o: CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c.o
-
-.PHONY : CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.o
-
-# target to build an object file
-CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c.o:
-	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c.o
-.PHONY : CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c.o
-
-CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.i: CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c.i
-
-.PHONY : CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.i
-
-# target to preprocess a source file
-CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c.i:
-	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c.i
-.PHONY : CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c.i
-
-CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.s: CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c.s
-
-.PHONY : CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.s
-
-# target to generate assembly for a file
-CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c.s:
-	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c.s
-.PHONY : CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c.s
-
-CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.o: CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.o
-
-.PHONY : CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.o
-
-# target to build an object file
-CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.o:
-	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.o
-.PHONY : CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.o
-
-CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.i: CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
-
-.PHONY : CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.i
-
-# target to preprocess a source file
-CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.i:
-	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
-.PHONY : CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
-
-CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.s: CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
-
-.PHONY : CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.s
-
-# target to generate assembly for a file
-CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.s:
-	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
-.PHONY : CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
-
-CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.o: CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.c.o
-
-.PHONY : CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.o
-
-# target to build an object file
-CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.c.o:
-	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.c.o
-.PHONY : CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.c.o
-
-CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.i: CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.c.i
-
-.PHONY : CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.i
-
-# target to preprocess a source file
-CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.c.i:
-	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.c.i
-.PHONY : CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.c.i
-
-CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.s: CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.c.s
-
-.PHONY : CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.s
-
-# target to generate assembly for a file
-CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.c.s:
-	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.c.s
-.PHONY : CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.c.s
-
-CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.o: CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.cpp.o
-
-.PHONY : CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.o
-
-# target to build an object file
-CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.cpp.o:
-	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.cpp.o
-.PHONY : CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.cpp.o
-
-CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.i: CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
-
-.PHONY : CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.i
-
-# target to preprocess a source file
-CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.cpp.i:
-	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
-.PHONY : CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
-
-CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.s: CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
-
-.PHONY : CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.s
-
-# target to generate assembly for a file
-CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.cpp.s:
-	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
-.PHONY : CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
-
 src/kernel/IDT/IDT.o: src/kernel/IDT/IDT.cpp.o
 
 .PHONY : src/kernel/IDT/IDT.o
@@ -474,6 +366,60 @@ src/kernel/cpu/cpuid.cpp.s:
 	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/cpu/cpuid.cpp.s
 .PHONY : src/kernel/cpu/cpuid.cpp.s
 
+src/kernel/drivers/cmos.o: src/kernel/drivers/cmos.cpp.o
+
+.PHONY : src/kernel/drivers/cmos.o
+
+# target to build an object file
+src/kernel/drivers/cmos.cpp.o:
+	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/cmos.cpp.o
+.PHONY : src/kernel/drivers/cmos.cpp.o
+
+src/kernel/drivers/cmos.i: src/kernel/drivers/cmos.cpp.i
+
+.PHONY : src/kernel/drivers/cmos.i
+
+# target to preprocess a source file
+src/kernel/drivers/cmos.cpp.i:
+	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/cmos.cpp.i
+.PHONY : src/kernel/drivers/cmos.cpp.i
+
+src/kernel/drivers/cmos.s: src/kernel/drivers/cmos.cpp.s
+
+.PHONY : src/kernel/drivers/cmos.s
+
+# target to generate assembly for a file
+src/kernel/drivers/cmos.cpp.s:
+	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/cmos.cpp.s
+.PHONY : src/kernel/drivers/cmos.cpp.s
+
+src/kernel/drivers/fs/disks.o: src/kernel/drivers/fs/disks.cpp.o
+
+.PHONY : src/kernel/drivers/fs/disks.o
+
+# target to build an object file
+src/kernel/drivers/fs/disks.cpp.o:
+	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/fs/disks.cpp.o
+.PHONY : src/kernel/drivers/fs/disks.cpp.o
+
+src/kernel/drivers/fs/disks.i: src/kernel/drivers/fs/disks.cpp.i
+
+.PHONY : src/kernel/drivers/fs/disks.i
+
+# target to preprocess a source file
+src/kernel/drivers/fs/disks.cpp.i:
+	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/fs/disks.cpp.i
+.PHONY : src/kernel/drivers/fs/disks.cpp.i
+
+src/kernel/drivers/fs/disks.s: src/kernel/drivers/fs/disks.cpp.s
+
+.PHONY : src/kernel/drivers/fs/disks.s
+
+# target to generate assembly for a file
+src/kernel/drivers/fs/disks.cpp.s:
+	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/fs/disks.cpp.s
+.PHONY : src/kernel/drivers/fs/disks.cpp.s
+
 src/kernel/drivers/serial.o: src/kernel/drivers/serial.cpp.o
 
 .PHONY : src/kernel/drivers/serial.o
@@ -591,18 +537,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... kernel"
-	@echo "... CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.o"
-	@echo "... CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.i"
-	@echo "... CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.s"
-	@echo "... CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.o"
-	@echo "... CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.i"
-	@echo "... CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.s"
-	@echo "... CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.o"
-	@echo "... CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.i"
-	@echo "... CMakeFiles/3.18.4/CompilerIdC/CMakeCCompilerId.s"
-	@echo "... CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.o"
-	@echo "... CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.i"
-	@echo "... CMakeFiles/3.18.4/CompilerIdCXX/CMakeCXXCompilerId.s"
 	@echo "... src/kernel/IDT/IDT.o"
 	@echo "... src/kernel/IDT/IDT.i"
 	@echo "... src/kernel/IDT/IDT.s"
@@ -630,6 +564,12 @@ help:
 	@echo "... src/kernel/cpu/cpuid.o"
 	@echo "... src/kernel/cpu/cpuid.i"
 	@echo "... src/kernel/cpu/cpuid.s"
+	@echo "... src/kernel/drivers/cmos.o"
+	@echo "... src/kernel/drivers/cmos.i"
+	@echo "... src/kernel/drivers/cmos.s"
+	@echo "... src/kernel/drivers/fs/disks.o"
+	@echo "... src/kernel/drivers/fs/disks.i"
+	@echo "... src/kernel/drivers/fs/disks.s"
 	@echo "... src/kernel/drivers/serial.o"
 	@echo "... src/kernel/drivers/serial.i"
 	@echo "... src/kernel/drivers/serial.s"

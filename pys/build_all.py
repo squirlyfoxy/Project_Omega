@@ -1,6 +1,7 @@
 #The following script will automate the building process
 
 import os, shutil
+import glob
 
 boot_str = "../src/bootloader/"
 kernel_str = "../src/kernel/"
@@ -15,6 +16,14 @@ print("Cleaning output folder")
 os.chdir(out_str)
 os.system("del /F /Q *")
 
+# Eseguo il build delle librerie
+print("Building Libraries:")
+os.chdir("../syslibs")
+libBat = glob.glob("*/*.bat")
+for bat in libBat:
+    os.system(bat)
+
+os.chdir("../pys")
 # Per prima cosa individuiamo il nostro obbiettivo: automatizzare il build del SO rendendolo scalabile a prossimi updates
 # Prima cosa da fare (per poter eseguire kpt.py) è procedere con il build del kernel
 print("Building Kernel: ")
