@@ -1,6 +1,6 @@
 @echo off
 
-echo Building math.lib library
+echo Building math.o library
 
 cd ./math
 

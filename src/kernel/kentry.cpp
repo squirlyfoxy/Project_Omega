@@ -24,6 +24,7 @@
 #include "include/ports/Memory/memory_map.h"
 #include "include/ports/Memory/heap.h"
 #include "include/drivers/serial.h"
+#include "include/drivers/fs/disks.h"
 #include "include/cpu/cpuid.h"
 
 extern "C" void _start()
@@ -43,6 +44,8 @@ extern "C" void _start()
     printf("(OK) \n\r");
 
     WriteStringSerial("Project Omega Initializated!");
+
+    CheckDisks();
 
     MainKeyboardHandler = KeyboardHandler;
     
