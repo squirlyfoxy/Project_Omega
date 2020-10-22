@@ -4,7 +4,7 @@
 int SplitByte(int byte, int who)
 {
     if(who == 0)
-        return byte & 0x0000FF00;
+        return byte & 0x0000FFFF;
     else
-        return byte & 0x000000FF;
+        return byte & 0xFFFF0000;
 }

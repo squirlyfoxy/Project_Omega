@@ -1,1 +1,1 @@
-E:\Programmi\qemu\qemu-system-x86_64.exe .\out\boot.bin
+E:\Programmi\qemu\qemu-system-x86_64.exe .\out\boot.bin -fda ./out/test_img/test_floppy_image.img

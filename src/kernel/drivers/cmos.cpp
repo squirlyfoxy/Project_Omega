@@ -1,17 +1,14 @@
 #include "../include/drivers/cmos.h"
 
+//Code from: http://kernelx.weebly.com/cmos.html
+
 //Read CMOS register
 unsigned char ReadCMOS(unsigned char cmos_register)
 {
-   unsigned char cmos_data;
-   
-    cli(); //Disable Interrupts
-
-    outb(0x70, ((inb(0x70) & 0xe0) | (cmos_register & 0x31))); // keep the top 3 bits, alter the last 5
-    cmos_data = inb (0x71);
-
-    sti(); //Enable Interrupts
-    return(cmos_data);   // returns only after we have the data in custody
+    unsigned char data;
+    outb(CMOS_ADDREG, cmos_register);
+    data = inb(CMOS_DATAREG);
+    return data;
 }
 
 //TODO: RTC
