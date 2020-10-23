@@ -4,6 +4,24 @@ char integerToStringOutput[128];
 char hexToStringOutput[128];
 char floatToStringOutput[128];
 
+bool isdigit(char c) {
+  return c >= '0' && c <= '9';
+}
+
+//Convert string to int
+int atoi(string str)
+{
+    int value = 0;
+    while(isdigit(*str))
+    {
+        value *= 10;
+        value += (*str)-'0';
+        str++;
+    }
+
+    return value;
+}
+
 //Convert float to string
 const char* FloatToString(float val, uint_8 decimalPlaces = 2)
 {

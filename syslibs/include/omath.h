@@ -7,5 +7,6 @@
 #define _MATH_H
 
 extern int SplitByte(int byte, int who = 0);
+extern double pow(double x, double y);
 
 #endif

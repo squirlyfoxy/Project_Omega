@@ -5,6 +5,12 @@
 
 #include "./typedef.h"
 
+#include <omath.h>
+
+uint_32 strlen(string str);
+
+int atoi(string str);
+
 //Convert Hex to String
 template <typename T>
 const char* HexToString(T value)
@@ -73,7 +79,5 @@ const char* itoa(T value)
 
 
 const char* FloatToString(float val, uint_8 decimalPlaces);
-
-uint_32 strlen(string str);
 
 #endif

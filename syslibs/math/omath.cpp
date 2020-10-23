@@ -8,3 +8,15 @@ int SplitByte(int byte, int who)
     else
         return byte & 0xFFFF0000;
 }
+
+double pow(double x, double y)
+{
+    double result = 0;
+    while (y != 0)
+    {
+        result *= x;
+        --y;
+    }
+
+    return result;
+}
