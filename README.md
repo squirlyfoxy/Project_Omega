@@ -20,12 +20,15 @@ To build just run "build.bat", the magic of scripts will do everything for you!
 
    * [x] <b>CPUID (In Development)</b>
    * [ ] <b>MSR</b>
+   * [x] <b>CMOS</b>
+   * [ ] <b>RTC</b>
 
 * Drivers
 
    * [x] <b>COM1 Driver (For Debugging)</b>
    * [x] <b>80x35 VGA Driver</b>
    * [x] <b>Keyborad Basic Driver</b>
+   * [x] <b>Floppy Disk Controller (In Development)</b>
    
 * File System
    * [ ] <b>PrOFS (Project Omega File System), in development</b>
