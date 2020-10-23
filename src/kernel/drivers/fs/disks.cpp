@@ -4,7 +4,7 @@ uint_64 dskMap[MAX_MAPPED_DISKS];
 
 void CheckDisks()
 {
-     //dskMap set all to -1
+     //dskMap set all to 1
      for(int i = 0; i < MAX_MAPPED_DISKS; i++)
           dskMap[i] = 0001;
 
@@ -70,23 +70,23 @@ void CheckDisks()
                //Check if it's a floppy
                if(i < 2)
                {
-                    if(dskMap[i] == i * 100 + atoi(HexToString(FLOPPY_360KB525_CODE)))
+                    if(dskMap[i] == (uint_64)i * 100 + atoi(HexToString(FLOPPY_360KB525_CODE)))
                     {
                          printf("At index "); printf(itoa(i)); printf(" there is a 5.25inchs 360kb floppy"); printf("\n\r");
                     }
-                    else if(dskMap[i] == i * 100 + atoi(HexToString(FLOPPY_1d20MB525_CODE)))
+                    else if(dskMap[i] == (uint_64)i * 100 + atoi(HexToString(FLOPPY_1d20MB525_CODE)))
                     {
                          printf("At index "); printf(itoa(i)); printf(" there is a 5.25inchs 1.20mb floppy"); printf("\n\r");
                     }
-                    else if(dskMap[i] == i * 100 + atoi(HexToString(FLOPPY_720KB350_CODE)))
+                    else if(dskMap[i] == (uint_64)i * 100 + atoi(HexToString(FLOPPY_720KB350_CODE)))
                     {
                          printf("At index "); printf(itoa(i)); printf(" there is a 3.50inchs 720kb floppy"); printf("\n\r");
                     }
-                    else if(dskMap[i] == i * 100 + atoi(HexToString(FLOPPY_1d44MB350_CODE)))
+                    else if(dskMap[i] == (uint_64)i * 100 + atoi(HexToString(FLOPPY_1d44MB350_CODE)))
                     {
                          printf("At index "); printf(itoa(i)); printf(" there is a 3.50inchs 1.44mb floppy"); printf("\n\r");
                     }
-                    else if(dskMap[i] == i * 100 + atoi(HexToString(FLOPPY_2d88MB350_CODE)))
+                    else if(dskMap[i] == (uint_64)i * 100 + atoi(HexToString(FLOPPY_2d88MB350_CODE)))
                     {
                          printf("At index "); printf(itoa(i)); printf(" there is a 3.50inchs 2.88mb floppy"); printf("\n\r");
                     }
