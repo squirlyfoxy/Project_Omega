@@ -8,7 +8,6 @@
 #include "../../../IDT/Keyboard/KBScanCode.cpp"
 
 void IDTinit();
-void WhaitIRQ(int who);
 extern "C" void irq0Handler();
 extern "C" void irq1Handler();
 extern "C" void irq2Handler();

@@ -47,7 +47,7 @@ extern "C" void _start()
 
     CheckDisks();
 
-    //MainKeyboardHandler = KeyboardHandler;
+    MainKeyboardHandler = KeyboardHandler;
     
     return;
 }

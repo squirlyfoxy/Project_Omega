@@ -420,6 +420,33 @@ src/kernel/drivers/fs/disks.cpp.s:
 	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/fs/disks.cpp.s
 .PHONY : src/kernel/drivers/fs/disks.cpp.s
 
+src/kernel/drivers/fs/floppy.o: src/kernel/drivers/fs/floppy.cpp.o
+
+.PHONY : src/kernel/drivers/fs/floppy.o
+
+# target to build an object file
+src/kernel/drivers/fs/floppy.cpp.o:
+	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/fs/floppy.cpp.o
+.PHONY : src/kernel/drivers/fs/floppy.cpp.o
+
+src/kernel/drivers/fs/floppy.i: src/kernel/drivers/fs/floppy.cpp.i
+
+.PHONY : src/kernel/drivers/fs/floppy.i
+
+# target to preprocess a source file
+src/kernel/drivers/fs/floppy.cpp.i:
+	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/fs/floppy.cpp.i
+.PHONY : src/kernel/drivers/fs/floppy.cpp.i
+
+src/kernel/drivers/fs/floppy.s: src/kernel/drivers/fs/floppy.cpp.s
+
+.PHONY : src/kernel/drivers/fs/floppy.s
+
+# target to generate assembly for a file
+src/kernel/drivers/fs/floppy.cpp.s:
+	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/fs/floppy.cpp.s
+.PHONY : src/kernel/drivers/fs/floppy.cpp.s
+
 src/kernel/drivers/serial.o: src/kernel/drivers/serial.cpp.o
 
 .PHONY : src/kernel/drivers/serial.o
@@ -570,6 +597,9 @@ help:
 	@echo "... src/kernel/drivers/fs/disks.o"
 	@echo "... src/kernel/drivers/fs/disks.i"
 	@echo "... src/kernel/drivers/fs/disks.s"
+	@echo "... src/kernel/drivers/fs/floppy.o"
+	@echo "... src/kernel/drivers/fs/floppy.i"
+	@echo "... src/kernel/drivers/fs/floppy.s"
 	@echo "... src/kernel/drivers/serial.o"
 	@echo "... src/kernel/drivers/serial.i"
 	@echo "... src/kernel/drivers/serial.s"

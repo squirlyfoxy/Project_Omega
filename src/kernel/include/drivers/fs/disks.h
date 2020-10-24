@@ -13,6 +13,11 @@
 
 #define MAX_MAPPED_DISKS 2
 
+#define FLOPPY_CODE              0x01
+#define HDD_CODE                 0x02
+#define SSD_CODE                 0x03
+#define NVME_CODE                0x04
+
 #define FLOPPY_NOTPRESENT_CODE   0x00
 #define FLOPPY_360KB525_CODE     0x10
 #define FLOPPY_1d20MB525_CODE    0x20

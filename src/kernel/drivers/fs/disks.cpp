@@ -24,45 +24,48 @@ void CheckDisks()
      //FLOPPY0
      if(x == FLOPPY_NOTPRESENT_CODE)
      {            //|dN(2),fC(2)| (For Now)
-          dskMap[0] = 0;
+          dskMap[0] = 0000;
      } else if(x == FLOPPY_360KB525_CODE)
      {            //|dN(2),fC(2)|
-          dskMap[0] = 10;
+          dskMap[0] = 0010;
      } else if(x == FLOPPY_1d20MB525_CODE)
      {            //|dN(2),fC(2)|
-          dskMap[0] = 20;
+          dskMap[0] = 0020;
      } else if(x == FLOPPY_720KB350_CODE)
      {            //|dN(2),fC(2)|
-          dskMap[0] = 30;
+          dskMap[0] = 0030;
      } else if(x == FLOPPY_1d44MB350_CODE)
      {            //|dN(2),fC(2)|
-          dskMap[0] = 40;
+          dskMap[0] = 0040;
      } else if(x == FLOPPY_2d88MB350_CODE)
      {            //|dN(2),fC(2)|
-          dskMap[0] = 50;
+          dskMap[0] = 0050;
      }
 
      //FLOPPY1
      if(y == FLOPPY_NOTPRESENT_CODE)
      {            //|dN(2),fC(2)| (For Now)
-          dskMap[1] = 100;
+          dskMap[1] = 0100;
      } else if(y == FLOPPY_360KB525_CODE)
      {            //|dN(2),fC(2)|
-          dskMap[1] = 110;
+          dskMap[1] = 0110;
      } else if(y == FLOPPY_1d20MB525_CODE)
      {            //|dN(2),fC(2)|
-          dskMap[1] = 120;
+          dskMap[1] = 0120;
      } else if(y == FLOPPY_720KB350_CODE)
      {            //|dN(2),fC(2)|
-          dskMap[1] = 130;
+          dskMap[1] = 0130;
      } else if(y == FLOPPY_1d44MB350_CODE)
      {            //|dN(2),fC(2)|
           dskMap[1] = 0140;
      } else if(y == FLOPPY_2d88MB350_CODE)
      {            //|dN(2),fC(2)|
-          dskMap[1] = 150;
+          dskMap[1] = 0150;
      }
 
+     // Print disk info
+     // For now only floppys are supported
+     // TODO: Move to another method 
      for(int i = 0; i < MAX_MAPPED_DISKS; i++)
      {
           if(dskMap[i] != 0001)

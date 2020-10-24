@@ -10,6 +10,7 @@
 uint_32 strlen(string str);
 
 int atoi(string str);
+bool isdigit(char c);
 
 //Convert Hex to String
 template <typename T>
