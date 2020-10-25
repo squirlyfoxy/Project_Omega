@@ -9,5 +9,6 @@
 #include "../ports/IO.h"
 
 unsigned char ReadCMOS(unsigned char cmos_register);
+unsigned short GetMenorySize();
 
 #endif

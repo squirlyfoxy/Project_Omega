@@ -393,33 +393,6 @@ src/kernel/drivers/cmos.cpp.s:
 	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/cmos.cpp.s
 .PHONY : src/kernel/drivers/cmos.cpp.s
 
-src/kernel/drivers/fs/disks.o: src/kernel/drivers/fs/disks.cpp.o
-
-.PHONY : src/kernel/drivers/fs/disks.o
-
-# target to build an object file
-src/kernel/drivers/fs/disks.cpp.o:
-	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/fs/disks.cpp.o
-.PHONY : src/kernel/drivers/fs/disks.cpp.o
-
-src/kernel/drivers/fs/disks.i: src/kernel/drivers/fs/disks.cpp.i
-
-.PHONY : src/kernel/drivers/fs/disks.i
-
-# target to preprocess a source file
-src/kernel/drivers/fs/disks.cpp.i:
-	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/fs/disks.cpp.i
-.PHONY : src/kernel/drivers/fs/disks.cpp.i
-
-src/kernel/drivers/fs/disks.s: src/kernel/drivers/fs/disks.cpp.s
-
-.PHONY : src/kernel/drivers/fs/disks.s
-
-# target to generate assembly for a file
-src/kernel/drivers/fs/disks.cpp.s:
-	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/fs/disks.cpp.s
-.PHONY : src/kernel/drivers/fs/disks.cpp.s
-
 src/kernel/drivers/serial.o: src/kernel/drivers/serial.cpp.o
 
 .PHONY : src/kernel/drivers/serial.o
@@ -567,9 +540,6 @@ help:
 	@echo "... src/kernel/drivers/cmos.o"
 	@echo "... src/kernel/drivers/cmos.i"
 	@echo "... src/kernel/drivers/cmos.s"
-	@echo "... src/kernel/drivers/fs/disks.o"
-	@echo "... src/kernel/drivers/fs/disks.i"
-	@echo "... src/kernel/drivers/fs/disks.s"
 	@echo "... src/kernel/drivers/serial.o"
 	@echo "... src/kernel/drivers/serial.i"
 	@echo "... src/kernel/drivers/serial.s"

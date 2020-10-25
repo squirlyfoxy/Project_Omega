@@ -24,7 +24,7 @@
 #include "include/ports/Memory/memory_map.h"
 #include "include/ports/Memory/heap.h"
 #include "include/drivers/serial.h"
-#include "include/drivers/fs/disks.h"
+#include "include/drivers/cmos.h"
 #include "include/cpu/cpuid.h"
 
 extern "C" void _start()
@@ -45,7 +45,7 @@ extern "C" void _start()
 
     WriteStringSerial("Project Omega Initializated!");
 
-    CheckDisks();
+    printf("CMOS Memory Size: "); printf(itoa(GetMenorySize())); printf("\n\r");
 
     //MainKeyboardHandler = KeyboardHandler;
     

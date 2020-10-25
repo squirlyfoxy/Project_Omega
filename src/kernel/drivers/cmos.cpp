@@ -11,4 +11,15 @@ unsigned char ReadCMOS(unsigned char cmos_register)
     return data;
 }
 
+unsigned short GetMenorySize()
+{
+    unsigned short memory; 
+    unsigned char low, high; 
+    low =ReadCMOS(0x30);   
+    high=ReadCMOS(0x31);
+
+    memory = low | high << 8;
+    return memory;
+}
+
 //TODO: RTC
