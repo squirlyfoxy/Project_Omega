@@ -9,4 +9,9 @@
 extern int SplitByte(int byte, int who = 0);
 extern double pow(double x, double y);
 
+namespace CONVERT
+{
+    extern unsigned char bcd2bin(unsigned char bcd);
+}
+
 #endif
