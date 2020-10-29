@@ -19,7 +19,7 @@ void WriteCMOS(unsigned char reg, unsigned char value)
     outb(CMOS_DATAREG, value);
 }
 
-//TODO: RTC
+//RTC Timer
 namespace RTC
 {
     //Code from: https://forum.osdev.org/viewtopic.php?f=1&t=17433
@@ -28,7 +28,6 @@ namespace RTC
 
     void RTCHandler()
     {
-        WriteStringSerial("Global Time");
         //if(ReadCMOS(0x0C) & 0x10)
         //{
             if(bcd)
@@ -40,6 +39,7 @@ namespace RTC
                 global_time.year   = CONVERT::bcd2bin(ReadCMOS(0x09));
                 global_time.day_of_week  = CONVERT::bcd2bin(ReadCMOS(0x06));
                 global_time.day_of_month = CONVERT::bcd2bin(ReadCMOS(0x07));
+                global_time.century = CONVERT::bcd2bin(ReadCMOS(0x32));
             }else 
             {
                 global_time.second = ReadCMOS(0x00);
@@ -49,14 +49,19 @@ namespace RTC
                 global_time.year   = ReadCMOS(0x09);
                 global_time.day_of_week  = ReadCMOS(0x06);
                 global_time.day_of_month = ReadCMOS(0x07);
+                global_time.century = ReadCMOS(0x32);
             }
         //}
     }
 
-    void GetTime(time_t *time)
+    time_t GetTime()
     {
-        memcpy(time, &global_time, sizeof(time_t));
-        //time = global_time;
+        asm volatile ("int $0x08"); // call IRQ8
+
+        //Whait IRQ8
+        for(int i = 0; i < 100; i++); //TODO: Be Whait()
+
+        return global_time;
     }
 
     void InitRTC()
@@ -82,8 +87,5 @@ namespace RTC
 
         //Init RTC Handler
         MainRTCHandler = RTCHandler;
-        asm volatile ("int $0x08"); // call IRQ8, this think will be deleated
-
-        //while ((!interrupt)) { }
     }
 }

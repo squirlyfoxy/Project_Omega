@@ -21,6 +21,7 @@ typedef struct time_t
     uint_8 day_of_month;
     uint_8 month;
     uint_8 year;
+    uint_8 century;
 };
 
 namespace RTC
@@ -28,10 +29,9 @@ namespace RTC
     extern time_t global_time;
     extern bool bcd;
 
-    extern void GetTime(time_t *time);
+    extern time_t GetTime();
     extern void InitRTC();
     extern void RTCHandler();
-
 }
 
 #endif

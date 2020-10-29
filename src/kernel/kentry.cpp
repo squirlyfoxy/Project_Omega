@@ -27,6 +27,7 @@
 #include "include/drivers/fs/disks.h"
 #include "include/cpu/cpuid.h"
 #include "include/drivers/cmos.h"
+#include "include/drivers/pit.h"
 
 extern "C" void _start()
 {   
@@ -47,13 +48,14 @@ extern "C" void _start()
     WriteStringSerial("Project Omega Initializated!");
 
     RTC::InitRTC();
+    TimerInit();
+
+    wait(100); //Test if it works
+
     CheckDisks();
 
-    MainKeyboardHandler = KeyboardHandler;
-
-    time_t time = RTC::global_time;
-
-    printf(itoa(time.year));
+    time_t time = RTC::GetTime();
+    printf("Current year: "); printf(itoa(time.century)); printf(itoa(time.year));
     
     return;
 }

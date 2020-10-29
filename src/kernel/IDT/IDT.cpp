@@ -3,6 +3,7 @@
 
 void (*MainKeyboardHandler) (uint_8 scanCode, uint_8 chr);
 void (*MainRTCHandler) ();
+void (*MainPITHandler) ();
 
 //Interrupt Descriptor Table
 struct IDT64
@@ -182,6 +183,9 @@ void IDTinit()
 extern "C" void irq0Handler()
 {
     //System Timer
+    if(MainPITHandler != NULL)
+        MainPITHandler();
+
     PICSendEOI(0);
 }
 
@@ -194,7 +198,7 @@ extern "C" void irq1Handler()
     if(scanCode < 0x3A)
         chr = KBSet1::ScanCodeLookupTable[scanCode];
 
-    if(MainKeyboardHandler != 0)
+    if(MainKeyboardHandler != NULL)
         MainKeyboardHandler(scanCode, chr);
 
     PICSendEOI(1);
@@ -240,7 +244,8 @@ extern "C" void irq7Handler()
 extern "C" void irq8Handler()
 {
     //RTC
-    MainRTCHandler();
+    if(MainRTCHandler != NULL)
+        MainRTCHandler();
     
     outb(0x70, 0x0c);
     inb(0x71);

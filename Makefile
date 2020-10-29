@@ -447,6 +447,33 @@ src/kernel/drivers/fs/floppy.cpp.s:
 	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/fs/floppy.cpp.s
 .PHONY : src/kernel/drivers/fs/floppy.cpp.s
 
+src/kernel/drivers/pit.o: src/kernel/drivers/pit.cpp.o
+
+.PHONY : src/kernel/drivers/pit.o
+
+# target to build an object file
+src/kernel/drivers/pit.cpp.o:
+	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/pit.cpp.o
+.PHONY : src/kernel/drivers/pit.cpp.o
+
+src/kernel/drivers/pit.i: src/kernel/drivers/pit.cpp.i
+
+.PHONY : src/kernel/drivers/pit.i
+
+# target to preprocess a source file
+src/kernel/drivers/pit.cpp.i:
+	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/pit.cpp.i
+.PHONY : src/kernel/drivers/pit.cpp.i
+
+src/kernel/drivers/pit.s: src/kernel/drivers/pit.cpp.s
+
+.PHONY : src/kernel/drivers/pit.s
+
+# target to generate assembly for a file
+src/kernel/drivers/pit.cpp.s:
+	$(MAKE) -f CMakeFiles/kernel.dir/build.make CMakeFiles/kernel.dir/src/kernel/drivers/pit.cpp.s
+.PHONY : src/kernel/drivers/pit.cpp.s
+
 src/kernel/drivers/serial.o: src/kernel/drivers/serial.cpp.o
 
 .PHONY : src/kernel/drivers/serial.o
@@ -600,6 +627,9 @@ help:
 	@echo "... src/kernel/drivers/fs/floppy.o"
 	@echo "... src/kernel/drivers/fs/floppy.i"
 	@echo "... src/kernel/drivers/fs/floppy.s"
+	@echo "... src/kernel/drivers/pit.o"
+	@echo "... src/kernel/drivers/pit.i"
+	@echo "... src/kernel/drivers/pit.s"
 	@echo "... src/kernel/drivers/serial.o"
 	@echo "... src/kernel/drivers/serial.i"
 	@echo "... src/kernel/drivers/serial.s"
