@@ -26,6 +26,7 @@
 #include "include/drivers/serial.h"
 #include "include/drivers/fs/disks.h"
 #include "include/cpu/cpuid.h"
+#include "include/drivers/cmos.h"
 
 extern "C" void _start()
 {   
@@ -45,9 +46,14 @@ extern "C" void _start()
 
     WriteStringSerial("Project Omega Initializated!");
 
+    RTC::InitRTC();
     CheckDisks();
 
     MainKeyboardHandler = KeyboardHandler;
+
+    time_t time = RTC::global_time;
+
+    printf(itoa(time.year));
     
     return;
 }

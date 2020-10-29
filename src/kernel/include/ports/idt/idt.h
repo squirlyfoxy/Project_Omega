@@ -26,5 +26,6 @@ extern "C" void irq14Handler();
 extern "C" void irq15Handler();
 
 extern void (*MainKeyboardHandler) (uint_8 scanCode, uint_8 chr);
+extern void (*MainRTCHandler) ();
 
 #endif

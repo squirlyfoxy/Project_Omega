@@ -7,7 +7,9 @@
 #define CMOS_DATAREG    0x71
 
 #include "../ports/IO.h"
+#include "rtc.h"
 
 unsigned char ReadCMOS(unsigned char cmos_register);
+void WriteCMOS(unsigned char reg, unsigned char value);
 
 #endif

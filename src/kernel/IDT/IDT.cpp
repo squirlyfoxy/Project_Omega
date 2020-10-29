@@ -1,6 +1,8 @@
 #include "../include/ports/idt/idt.h"
+#include "../include/drivers/cmos.h"
 
 void (*MainKeyboardHandler) (uint_8 scanCode, uint_8 chr);
+void (*MainRTCHandler) ();
 
 //Interrupt Descriptor Table
 struct IDT64
@@ -238,6 +240,11 @@ extern "C" void irq7Handler()
 extern "C" void irq8Handler()
 {
     //RTC
+    MainRTCHandler();
+    
+    outb(0x70, 0x0c);
+    inb(0x71);
+
     PICSendEOI(8);
 }
 
