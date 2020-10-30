@@ -106,17 +106,19 @@ LongMode:
 	mov dr0, rax	; Set CPU0
 
     ; Now we are in Long Mode!!!
-    ; Check for SSE Support
-    mov eax, 0x1
-    cpuid
-    test edx, 1 << 25
-    call ActivateSSE
 
     call _start
 
     jmp $                           ; Halt the processor.
 
 ActivateSSE:
+    ; Check for SSE Support
+    mov eax, 0x1
+    cpuid
+    test edx, 1 << 25
+    jz .noSEE
+
+    ; Allow SEE instructions
     mov rax, cr0
     and ax, 0b11111101
     or ax, 0b00000001
@@ -126,5 +128,8 @@ ActivateSSE:
     or ax, 0b1100000000
     mov cr4, rax
     ret
+
+    .noSEE:
+        ret
 
 times 2048 - ($ - $$) db 0   ; Fill 4 sectors

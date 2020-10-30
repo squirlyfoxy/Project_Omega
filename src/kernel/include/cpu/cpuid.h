@@ -21,6 +21,8 @@ struct MSR
     }
 };
 
+extern "C" void ActivateSSE();
+
 void Amd();
 void Intel();
 uint_16 DetectCPU();

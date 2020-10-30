@@ -35,6 +35,7 @@ void Amd()
 void Intel()
 {
     //TODO: Intel Support
+    ActivateSSE();
 }
 
 //Get AL value
@@ -92,7 +93,7 @@ uint_8 GetBLValue()
     return val;
 }
 
-//Get BL value
+//Get BH value
 uint_8 GetBHValue()
 {
     uint_8 val;
