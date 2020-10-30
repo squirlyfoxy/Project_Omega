@@ -18,7 +18,7 @@ To build just run "build.bat", the magic of scripts will do everything for you!
 
 * CPU
 
-   * [x] <b>CPUID (In Development)</b>
+   * [x] <b>CPUID</b>
    * [ ] <b>MSR</b>
    * [x] <b>CMOS</b>
    * [ ] <b>RTC</b>
