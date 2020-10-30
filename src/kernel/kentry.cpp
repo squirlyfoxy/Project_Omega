@@ -45,6 +45,9 @@ extern "C" void _start()
 
     WriteStringSerial("Project Omega Initializated!");
 
+    DetectCPU();
+    printf("CPU Name: "); printf(CPUinfos.name); printf("\n\r");
+
     printf("CMOS Memory Size: "); printf(itoa(GetMenorySize())); printf("\n\r");
 
     //MainKeyboardHandler = KeyboardHandler;

@@ -132,4 +132,6 @@ ActivateSSE:
     .noSEE:
         ret
 
+    GLOBAL ActivateSSE
+
 times 2048 - ($ - $$) db 0   ; Fill 4 sectors
