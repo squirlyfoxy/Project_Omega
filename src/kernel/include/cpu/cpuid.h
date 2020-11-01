@@ -4,6 +4,8 @@
 #define _CPUID_H
 
 #include "../typedef.h"
+#include "../string.h"
+#include "../kprint.h"
 #include "msr.h"
 
 // CPU Functions
@@ -85,6 +87,7 @@ typedef struct cpu
     uint_16 vendor_id;
     int family;
     int model;
+    int steeping;
     string name;
     bool isMSR;
 };
@@ -115,5 +118,6 @@ uint_8 GetCLValue();
 uint_8 GetCHValue();
 uint_8 GetBLValue();
 uint_8 GetBHValue();
+
 
 #endif

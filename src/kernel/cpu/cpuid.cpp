@@ -2,63 +2,13 @@
 
 void DoAmd();
 void DoIntel();
-void DetectCPUFamilyAndModel();
-void DetectCPUName();
+void CpuExtendedFunctions();
 
 MSR msr;
 cpu CPUinfos;
 
-void DetectCPUFamilyAndModel()
-{
-    //Detect cpu family & model
-    //Code from https://github.com/mallardtheduck/osdev/blob/master/src/kernel/cpuid.c
-    unsigned long extended, eax, ebx, ecx, edx, unused;
-	int family, model, stepping, reserved;
-	cpuid(1, eax, unused, unused, unused);
-	model = (eax >> 4) & 0xf;
-	family = (eax >> 8) & 0xf;
-	stepping = eax & 0xf;
-	reserved = eax >> 12;
-
-    CPUinfos.family = family;
-    CPUinfos.model = model;
-}
-
-void DetectCPUName()
-{
-    //Detect cpu name string
-    //Code from: https://github.com/pdoane/osdev/blob/master/cpu/detect.c
-    struct new_cpud_id
-    {
-        //A different cpuid function
-        static inline void new_cpuid(uint_32 reg, uint_32 *eax, uint_32 *ebx, uint_32 *ecx, uint_32 *edx)
-        {
-            __asm__ volatile("cpuid"
-                : "=a" (*eax), "=b" (*ebx), "=c" (*ecx), "=d" (*edx)
-                : "0" (reg));
-        }
-    };
-
-    new_cpud_id nc;
-    string n;
-    nc.new_cpuid(0x80000002, (uint_32 *)(n +  0), (uint_32 *)(n +  4), (uint_32 *)(n +  8), (uint_32 *)(n + 12));
-    nc.new_cpuid(0x80000003, (uint_32 *)(n + 16), (uint_32 *)(n + 20), (uint_32 *)(n + 24), (uint_32 *)(n + 28));
-    nc.new_cpuid(0x80000004, (uint_32 *)(n + 32), (uint_32 *)(n + 36), (uint_32 *)(n + 40), (uint_32 *)(n + 44));
-
-    string p = n;
-    while (*p == ' ')
-    {
-        ++p;
-    }
-
-    CPUinfos.name = p;
-}
-
 void DetectCPU()
 {
-    DetectCPUFamilyAndModel();
-    DetectCPUName();
-
 	unsigned long ebx, unused;
 	cpuid(0, unused, ebx, unused, unused);
 
@@ -74,18 +24,105 @@ void DetectCPU()
         break;
 	}
 
+    ActivateSSE(); //Scheck and activate SSE
     CPUinfos.isMSR = msr.CheckMSR();
+}
+
+void printregs(int eax, int ebx, int ecx, int edx) {
+	int j;
+	char string[48];
+	string[16] = '\0';
+	for(j = 0; j < 4; j++) {
+		string[j] = eax >> (8 * j);
+		string[j + 4] = ebx >> (8 * j);
+		string[j + 8] = ecx >> (8 * j);
+		string[j + 12] = edx >> (8 * j);
+	}
+	printf(string);
 }
 
 void DoAmd()
 {
-    //TODO: AMD Support
+    //AMD Support
+
+    //Get Family and Model number
+	unsigned long extended, eax, ebx, ecx, edx, unused;
+    int family, model, stepping, reserved;
+	cpuid(1, eax, unused, unused, unused);
+	model = (eax >> 4) & 0xf;
+	family = (eax >> 8) & 0xf;
+    stepping = eax & 0xf;
+	reserved = eax >> 12;
+
+    CPUinfos.model = model;
+    CPUinfos.family = family;
+    CPUinfos.steeping = stepping;
+
+    CpuExtendedFunctions();
 }
 
 void DoIntel()
 {
-    //TODO: Intel Support
-    ActivateSSE();
+    //Intel Support
+
+    //Get Family and Model number
+    unsigned long eax, ebx, unused;
+	int model, family, type, brand, stepping, reserved;
+	cpuid(1, eax, ebx, unused, unused);
+	model = (eax >> 4) & 0xf;
+	family = (eax >> 8) & 0xf;
+    type = (eax >> 12) & 0x3;
+	brand = ebx & 0xff;
+	stepping = eax & 0xf;
+	reserved = eax >> 14;
+
+    CPUinfos.model = model;
+    CPUinfos.family = family;
+    CPUinfos.steeping = stepping;
+
+    CpuExtendedFunctions();
+}
+
+void CpuExtendedFunctions()
+{
+    unsigned long extended, eax, ebx, ecx, edx, unused;
+
+    cpuid(0x80000000, extended, unused, unused, unused);
+
+    if(extended == 0) //No extended functions
+    {
+        return;
+    }
+
+    //Cpu Name:
+	if(extended >= 0x80000004)
+    {
+        //Code from: https://github.com/pdoane/osdev/blob/master/cpu/detect.c
+        struct new_cpud_id
+        {
+            //A different cpuid function
+            static inline void new_cpuid(uint_32 reg, uint_32 *eax, uint_32 *ebx, uint_32 *ecx, uint_32 *edx)
+            {
+                __asm__ volatile("cpuid"
+                    : "=a" (*eax), "=b" (*ebx), "=c" (*ecx), "=d" (*edx)
+                    : "0" (reg));
+            }
+        };
+
+        new_cpud_id nc;
+        string n;
+        nc.new_cpuid(0x80000002, (uint_32 *)(n +  0), (uint_32 *)(n +  4), (uint_32 *)(n +  8), (uint_32 *)(n + 12));
+        nc.new_cpuid(0x80000003, (uint_32 *)(n + 16), (uint_32 *)(n + 20), (uint_32 *)(n + 24), (uint_32 *)(n + 28));
+        nc.new_cpuid(0x80000004, (uint_32 *)(n + 32), (uint_32 *)(n + 36), (uint_32 *)(n + 40), (uint_32 *)(n + 44));
+
+        string p = n;
+        while (*p == ' ')
+        {
+            ++p;
+        }
+
+        CPUinfos.name = p;
+	}
 }
 
 //Get AL value
@@ -150,6 +187,28 @@ uint_8 GetBHValue()
 
     //Assembly
     asm volatile("movb %%bh, %0" : "=r" (val));
+
+    return val;
+}
+
+//Get DL value
+uint_8 GetDLValue()
+{
+    uint_8 val;
+
+    //Assembly
+    asm volatile("movb %%dl, %0" : "=r" (val));
+
+    return val;
+}
+
+//Get DH value
+uint_8 GetDHValue()
+{
+    uint_8 val;
+
+    //Assembly
+    asm volatile("movb %%dh, %0" : "=r" (val));
 
     return val;
 }

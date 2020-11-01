@@ -43,12 +43,15 @@ extern "C" void _start()
     InitSerial(COM1);
     printf("(OK) \n\r");
 
-    WriteStringSerial("Project Omega Initializated!");
-
     DetectCPU();
-    printf("CPU Name: "); printf(CPUinfos.name); printf("\n\r");
 
     printf("CMOS Memory Size: "); printf(itoa(GetMenorySize())); printf("\n\r");
+
+    WriteStringSerial("Project Omega Initializated!");
+
+    printf("CPU Name: "); printf(CPUinfos.name); printf("\n\r");
+    printf("CPU Model: "); printf(itoa(CPUinfos.model)); printf("\n\r");
+    printf("CPU Family: "); printf(itoa(CPUinfos.family)); printf("\n\r");
 
     //MainKeyboardHandler = KeyboardHandler;
     
