@@ -47,7 +47,6 @@ void CheckDisks()
      floppy1->number = 1;
      floppy1->diskType = DisksTypes::floppy;
      floppy1->nextDisk = NULL;
-     floppy0->nextDisk = floppy1;
 
      if(y == FLOPPY_NOTPRESENT_CODE)
      {            
@@ -68,7 +67,8 @@ void CheckDisks()
      {            
           floppy1->byteSize = 2880000;
      } else { }
-
+     
+     floppy0->nextDisk = floppy1;
      disks = floppy0;
 
      //Print flopy0 informations
