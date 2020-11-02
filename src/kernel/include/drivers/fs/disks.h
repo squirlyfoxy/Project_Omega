@@ -4,6 +4,7 @@
 #define _DISKS_H
 
 #include "../../typedef.h"
+#include "../../ports/Memory/heap.h"
 #include "../cmos.h"
 #include "../../kprint.h"
 #include "../../string.h"
@@ -25,11 +26,23 @@
 #define FLOPPY_1d44MB350_CODE    0x40
 #define FLOPPY_2d88MB350_CODE    0x50
 
-// Disk map (Array)
-// 64bit for disk |type,size(byte),num|
-extern uint_64 dskMap[MAX_MAPPED_DISKS];
+enum DisksTypes
+{
+    floppy = 0
+};
+
+// Disk map
+struct DiskMap
+{
+    uint_8 number;
+    float byteSize;
+    DisksTypes diskType;
+    DiskMap* nextDisk;
+};
 
 //Create a disk map
 void CheckDisks();
+
+extern DiskMap* disks;
 
 #endif

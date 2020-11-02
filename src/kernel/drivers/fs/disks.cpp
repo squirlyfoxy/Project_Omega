@@ -1,13 +1,9 @@
 #include "../../include/drivers/fs/disks.h"
 
-uint_64 dskMap[MAX_MAPPED_DISKS];
+DiskMap* disks;
 
 void CheckDisks()
 {
-     //dskMap set all to 1
-     for(int i = 0; i < MAX_MAPPED_DISKS; i++)
-          dskMap[i] = 0001;
-
      //For now map only floppys from CMOS
      unsigned char cmosOut = ReadCMOS(0x10);
 
@@ -21,79 +17,60 @@ void CheckDisks()
      //dN = Disk Number
      //fC = Floppy Code
 
+     DiskMap* floppy0 = (DiskMap*)malloc(sizeof(DiskMap));
+     floppy0->number = 0;
+     floppy0->diskType = DisksTypes::floppy;
+
      //FLOPPY0
      if(x == FLOPPY_NOTPRESENT_CODE)
-     {            //|dN(2),fC(2)| (For Now)
-          dskMap[0] = 0000;
+     {            
+          floppy0->byteSize = 0;
      } else if(x == FLOPPY_360KB525_CODE)
-     {            //|dN(2),fC(2)|
-          dskMap[0] = 0010;
+     {            
+          floppy0->byteSize = 360000;
      } else if(x == FLOPPY_1d20MB525_CODE)
-     {            //|dN(2),fC(2)|
-          dskMap[0] = 0020;
+     {            
+          floppy0->byteSize = 1200000;
      } else if(x == FLOPPY_720KB350_CODE)
-     {            //|dN(2),fC(2)|
-          dskMap[0] = 0030;
+     {            
+          floppy0->byteSize = 720000;
      } else if(x == FLOPPY_1d44MB350_CODE)
-     {            //|dN(2),fC(2)|
-          dskMap[0] = 0040;
+     {            
+          floppy0->byteSize = 1440000;
      } else if(x == FLOPPY_2d88MB350_CODE)
-     {            //|dN(2),fC(2)|
-          dskMap[0] = 0050;
-     }
+     {            
+          floppy0->byteSize = 2880000;
+     } else { }
 
      //FLOPPY1
-     if(y == FLOPPY_NOTPRESENT_CODE)
-     {            //|dN(2),fC(2)| (For Now)
-          dskMap[1] = 0100;
-     } else if(y == FLOPPY_360KB525_CODE)
-     {            //|dN(2),fC(2)|
-          dskMap[1] = 0110;
-     } else if(y == FLOPPY_1d20MB525_CODE)
-     {            //|dN(2),fC(2)|
-          dskMap[1] = 0120;
-     } else if(y == FLOPPY_720KB350_CODE)
-     {            //|dN(2),fC(2)|
-          dskMap[1] = 0130;
-     } else if(y == FLOPPY_1d44MB350_CODE)
-     {            //|dN(2),fC(2)|
-          dskMap[1] = 0140;
-     } else if(y == FLOPPY_2d88MB350_CODE)
-     {            //|dN(2),fC(2)|
-          dskMap[1] = 0150;
-     }
+     DiskMap* floppy1 = (DiskMap*)malloc(sizeof(DiskMap));
+     floppy1->number = 1;
+     floppy1->diskType = DisksTypes::floppy;
+     floppy1->nextDisk = NULL;
+     floppy0->nextDisk = floppy1;
 
-     // Print disk info
-     // For now only floppys are supported
-     // TODO: Move to another method 
-     for(int i = 0; i < MAX_MAPPED_DISKS; i++)
-     {
-          if(dskMap[i] != 0001)
-          {
-               //Check if it's a floppy
-               if(i < 2)
-               {
-                    if(dskMap[i] == (uint_64)i * 100 + atoi(HexToString(FLOPPY_360KB525_CODE)))
-                    {
-                         printf("At index "); printf(itoa(i)); printf(" there is a 5.25inchs 360kb floppy"); printf("\n\r");
-                    }
-                    else if(dskMap[i] == (uint_64)i * 100 + atoi(HexToString(FLOPPY_1d20MB525_CODE)))
-                    {
-                         printf("At index "); printf(itoa(i)); printf(" there is a 5.25inchs 1.20mb floppy"); printf("\n\r");
-                    }
-                    else if(dskMap[i] == (uint_64)i * 100 + atoi(HexToString(FLOPPY_720KB350_CODE)))
-                    {
-                         printf("At index "); printf(itoa(i)); printf(" there is a 3.50inchs 720kb floppy"); printf("\n\r");
-                    }
-                    else if(dskMap[i] == (uint_64)i * 100 + atoi(HexToString(FLOPPY_1d44MB350_CODE)))
-                    {
-                         printf("At index "); printf(itoa(i)); printf(" there is a 3.50inchs 1.44mb floppy"); printf("\n\r");
-                    }
-                    else if(dskMap[i] == (uint_64)i * 100 + atoi(HexToString(FLOPPY_2d88MB350_CODE)))
-                    {
-                         printf("At index "); printf(itoa(i)); printf(" there is a 3.50inchs 2.88mb floppy"); printf("\n\r");
-                    }
-               }
-          }
-     }
+     if(y == FLOPPY_NOTPRESENT_CODE)
+     {            
+          floppy1->byteSize = 0;
+     } else if(y == FLOPPY_360KB525_CODE)
+     {            
+          floppy1->byteSize = 360000;
+     } else if(y == FLOPPY_1d20MB525_CODE)
+     {            
+          floppy1->byteSize = 1200000;
+     } else if(y == FLOPPY_720KB350_CODE)
+     {            
+          floppy1->byteSize = 720000;
+     } else if(y == FLOPPY_1d44MB350_CODE)
+     {            
+          floppy1->byteSize = 1440000;
+     } else if(y == FLOPPY_2d88MB350_CODE)
+     {            
+          floppy1->byteSize = 2880000;
+     } else { }
+
+     disks = floppy0;
+
+     //Print flopy0 informations
+     printf("At index "); printf(itoa(disks->number)); printf(" there is a "); printf(FloatToString(disks->byteSize / 1024 / 1024, 2)); printf("mb floppy"); printf("\n\r");
 }

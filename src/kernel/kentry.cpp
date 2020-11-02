@@ -47,15 +47,15 @@ extern "C" void _start()
 
     WriteStringSerial("Project Omega Initializated!");
 
-    RTC::InitRTC();
+/*    RTC::InitRTC();
     TimerInit();
 
     wait(100); //Test if it works
-
+*/
     CheckDisks();
-
+/*
     time_t time = RTC::GetTime();
     printf("Current year: "); printf(itoa(time.century)); printf(itoa(time.year));
-    
+  */  
     return;
 }
