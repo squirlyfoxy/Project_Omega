@@ -92,6 +92,18 @@ typedef struct cpu
     bool isMSR;
 };
 
+//Code from: https://github.com/pdoane/osdev/blob/master/cpu/detect.c
+struct new_cpud_id
+{
+    //A different cpuid function
+    static inline void new_cpuid(uint_32 reg, uint_32 *eax, uint_32 *ebx, uint_32 *ecx, uint_32 *edx)
+    {
+        __asm__ volatile("cpuid"
+            : "=a" (*eax), "=b" (*ebx), "=c" (*ecx), "=d" (*edx)
+            : "0" (reg));
+    }
+};
+
 #define INTEL_VENDOR_ID 0x756e6547
 #define AMD_VENDOR_ID 0x68747541
 

@@ -1,1 +1,11 @@
-E:\Programmi\qemu\qemu-system-x86_64.exe .\out\boot.bin -fda ./out/test_img/test_floppy_image.img
+@echo off
+
+if "%1" == "box" (
+    VirtualBoxVM --startvm Omega
+    exit
+)
+
+if "%1" == "qemu" (
+    qemu-system-x86_64 .\out\floppy.img
+    exit
+)

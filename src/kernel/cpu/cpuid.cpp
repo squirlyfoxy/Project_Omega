@@ -1,4 +1,5 @@
 #include "../include/cpu/cpuid.h"
+#include "../include/ports/Memory/heap.h"
 
 void DoAmd();
 void DoIntel();
@@ -24,8 +25,8 @@ void DetectCPU()
         break;
 	}
 
-    ActivateSSE(); //Scheck and activate SSE
-    CPUinfos.isMSR = msr.CheckMSR();
+    //ActivateSSE(); //Scheck and activate SSE
+    //CPUinfos.isMSR = msr.CheckMSR();
 }
 
 void DoAmd()
@@ -72,7 +73,7 @@ void DoIntel()
 
 void CpuExtendedFunctions()
 {
-    unsigned long extended, eax, ebx, ecx, edx, unused;
+    unsigned long extended, unused;
 
     cpuid(0x80000000, extended, unused, unused, unused);
 
@@ -84,23 +85,12 @@ void CpuExtendedFunctions()
     //Cpu Name:
 	if(extended >= 0x80000004)
     {
-        //Code from: https://github.com/pdoane/osdev/blob/master/cpu/detect.c
-        struct new_cpud_id
-        {
-            //A different cpuid function
-            static inline void new_cpuid(uint_32 reg, uint_32 *eax, uint_32 *ebx, uint_32 *ecx, uint_32 *edx)
-            {
-                __asm__ volatile("cpuid"
-                    : "=a" (*eax), "=b" (*ebx), "=c" (*ecx), "=d" (*edx)
-                    : "0" (reg));
-            }
-        };
-
-        new_cpud_id nc;
+        new_cpud_id* nc = (new_cpud_id*)(malloc(sizeof(new_cpud_id)));
         string n;
-        nc.new_cpuid(0x80000002, (uint_32 *)(n +  0), (uint_32 *)(n +  4), (uint_32 *)(n +  8), (uint_32 *)(n + 12));
-        nc.new_cpuid(0x80000003, (uint_32 *)(n + 16), (uint_32 *)(n + 20), (uint_32 *)(n + 24), (uint_32 *)(n + 28));
-        nc.new_cpuid(0x80000004, (uint_32 *)(n + 32), (uint_32 *)(n + 36), (uint_32 *)(n + 40), (uint_32 *)(n + 44));
+
+        nc->new_cpuid(0x80000002, (uint_32 *)(n +  0), (uint_32 *)(n +  4), (uint_32 *)(n +  8), (uint_32 *)(n + 12));
+        nc->new_cpuid(0x80000003, (uint_32 *)(n + 16), (uint_32 *)(n + 20), (uint_32 *)(n + 24), (uint_32 *)(n + 28));
+        nc->new_cpuid(0x80000004, (uint_32 *)(n + 32), (uint_32 *)(n + 36), (uint_32 *)(n + 40), (uint_32 *)(n + 44));
 
         string p = n;
         while (*p == ' ')
